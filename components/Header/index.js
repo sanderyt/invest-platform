@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import Link from "next/link";
-import { AuthContext } from "../../context/authContext";
+import { AuthContext } from "../../context/auth";
 
 import Hamburger from "../Hamburger";
 import MobileNavigation from "../MobileNavigation";

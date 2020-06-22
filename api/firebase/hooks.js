@@ -1,6 +1,6 @@
-import app from "./firebase";
+import app from ".";
 import { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../../context/authContext";
+import { AuthContext } from "../../context/auth";
 
 export const useRegister = () => {
   const [user, setUser] = useState({});

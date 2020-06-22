@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 
 import useForm from "../hooks/useForm";
-import { useLogin } from "../api/firebase/functions";
+import { useLogin } from "../api/firebase/hooks";
 import validateLogin from "../utils/validateLogin";
-import { AuthContext } from "../context/authContext";
+import { AuthContext } from "../context/auth";
 
 import Layout from "../components/Layout";
 import Subheader from "../components/Subheader";
