@@ -1,19 +1,14 @@
 export default function validateRegister(values) {
   let errors = {};
 
-  console.log(values, "values");
-
-  if (!values[name]) {
-    errors[name] = `${name} is verplicht`;
+  for (const [key, value] of Object.entries(values)) {
+    if (!value) errors[key] = `${key} is verplicht`;
   }
 
-  if (!values.email) {
-    errors.email = "Email invullen is verplicht.";
-  }
+  if (values.password !== values.confirmPassword)
+    errors.password = "Het wachtwoord komt niet overeen.";
 
-  if (!values.residence) {
-    errors.residence = "Woonplaats invullen is verplicht.";
-  }
+  console.log(errors);
 
   return errors;
 }

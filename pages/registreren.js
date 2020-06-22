@@ -41,7 +41,7 @@ const Registreren = () => {
           type="text"
           value={values.firstName}
           error={errors.firstName}
-          onChange={handleChange}
+          changeHandler={handleChange}
         />
         <InputField
           name="lastName"
@@ -49,7 +49,7 @@ const Registreren = () => {
           type="text"
           value={values.lastName}
           error={errors.lastName}
-          onChange={handleChange}
+          changeHandler={handleChange}
         />
         <InputField
           name="residence"
@@ -57,7 +57,7 @@ const Registreren = () => {
           type="text"
           value={values.residence}
           error={errors.residence}
-          onChange={handleChange}
+          changeHandler={handleChange}
         />
         <InputField
           name="email"
@@ -65,7 +65,7 @@ const Registreren = () => {
           type="text"
           value={values.email}
           error={errors.email}
-          onChange={handleChange}
+          changeHandler={handleChange}
         />
         <InputField
           name="password"
@@ -73,7 +73,7 @@ const Registreren = () => {
           type="password"
           value={values.password}
           error={errors.password}
-          onChange={handleChange}
+          changeHandler={handleChange}
         />
         <InputField
           name="confirmPassword"
@@ -81,7 +81,7 @@ const Registreren = () => {
           type="password"
           value={values.confirmPassword}
           error={errors.password}
-          onChange={handleChange}
+          changeHandler={handleChange}
         />
         <button className="btn btn--primary" onClick={handleSubmit}>
           Registreren
