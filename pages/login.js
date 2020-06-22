@@ -7,6 +7,7 @@ import Layout from "../components/Layout";
 import Subheader from "../components/Subheader";
 import Box from "../components/Box";
 import InputField from "../components/InputField";
+import Button from "../components/Button";
 
 const Login = () => {
   const { handleChange, handleSubmit, values, errors } = useForm(
@@ -43,9 +44,7 @@ const Login = () => {
           error={errors.password}
           changeHandler={handleChange}
         />
-        <button className="btn btn--primary" onClick={handleSubmit}>
-          Login
-        </button>
+        <Button clickHandler={handleSubmit}>Inloggen</Button>
       </Box>
     </Layout>
   );
