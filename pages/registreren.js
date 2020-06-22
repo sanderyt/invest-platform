@@ -14,10 +14,16 @@ const Registreren = () => {
       />
       <Box>
         <h3>Registeer voor volledige toegang</h3>
-        <InputField name="Voornaam" />
-        <InputField name="Achternaam" />
-        <InputField name="Woonplaats" />
-        <InputField name="Email" />
+        <InputField name="firstName" label="Voornaam" type="text" />
+        <InputField name="lastName" label="Achternaam" type="text" />
+        <InputField name="residence" label="Woonplaats" type="text" />
+        <InputField name="email" label="Email" type="text" />
+        <InputField name="password" label="Wachtwoord" type="password" />
+        <InputField
+          name="confirmPassword"
+          label="Wachtwoord bevestigen"
+          type="password"
+        />
         <button className="btn btn--primary">Registreren</button>
       </Box>
     </Layout>
