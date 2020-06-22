@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import useForm from "../hooks/useForm";
+import { useLogin } from "../api/firebase/functions";
 import validateLogin from "../utils/validateLogin";
+import { AuthContext } from "../context/authContext";
 
 import Layout from "../components/Layout";
 import Subheader from "../components/Subheader";
@@ -18,10 +20,10 @@ const Login = () => {
     submit,
     validateLogin
   );
+  const { loginUser, error, isLoading } = useLogin();
 
   function submit() {
-    console.log("Submitted Succesfully");
-    console.log(values);
+    loginUser(values.email, values.password);
   }
   return (
     <Layout>
@@ -44,7 +46,10 @@ const Login = () => {
           error={errors.password}
           changeHandler={handleChange}
         />
-        <Button clickHandler={handleSubmit}>Inloggen</Button>
+        <Button clickHandler={handleSubmit} isLoading={isLoading}>
+          Inloggen
+        </Button>
+        {error && <span className="text--error mt-3">{error}</span>}
       </Box>
     </Layout>
   );

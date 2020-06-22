@@ -1,5 +1,6 @@
 import app from "./firebase";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../context/authContext";
 
 export const useRegister = () => {
   const [user, setUser] = useState({});
@@ -25,19 +26,27 @@ export const useRegister = () => {
   return { registerUser, user, error, isLoading };
 };
 
-export const loginUser = (email, password) => {
-  const isLoading = true;
-  app
-    .auth()
-    .signInWithEmailAndPassword(email, password)
-    .then(response => {
-      isLoading = false;
-      console.log(response);
-    })
-    .catch(error => {
-      isLoading = false;
-      console.log(error);
-    });
+export const useLogin = () => {
+  const [user, setUser] = useState(null);
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const context = useContext(AuthContext);
 
-  return { isLoading };
+  const loginUser = (email, password) => {
+    setIsLoading(true);
+    app
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(response => {
+        setUser(response.user);
+        context.login(response.user);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        setError(error.message);
+        setIsLoading(false);
+      });
+  };
+
+  return { loginUser, user, error, isLoading };
 };
