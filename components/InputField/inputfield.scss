@@ -1,12 +1,25 @@
 .textfield {
   position: relative;
+  padding-bottom: 10px;
 
   input {
-    border: 1px solid $grey100;
+    border: 1px solid $grey200;
+    background-color: #f7f7f7;
+    color: $grey400;
     padding: 8px;
+    width: 250px;
     margin-left: 0px;
     outline: none;
     font-size: 1rem;
+    transition: 250ms;
+
+    &:focus {
+      border: 1px solid $cta-color;
+    }
+  }
+
+  .label {
+    font-size: 0.9rem;
   }
 
   &__error {
