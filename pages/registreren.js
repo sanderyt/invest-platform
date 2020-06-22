@@ -1,12 +1,14 @@
 import React from "react";
 
 import useForm from "../hooks/useForm";
+import { useRegister } from "../api/firebase/functions";
 import validateRegister from "../utils/validateRegister";
 
 import Layout from "../components/Layout";
 import Subheader from "../components/Subheader";
 import Box from "../components/Box";
 import InputField from "../components/InputField";
+import Button from "../components/Button";
 
 const Registreren = () => {
   const { handleChange, handleSubmit, values, errors } = useForm(
@@ -21,11 +23,13 @@ const Registreren = () => {
     submit,
     validateRegister
   );
+  const { registerUser, user, error, isLoading } = useRegister();
 
   function submit() {
-    console.log("Submitted Succesfully");
-    console.log(values);
+    registerUser(values.email, values.password);
   }
+
+  if (user) console.log(user, "user");
 
   return (
     <Layout>
@@ -83,9 +87,10 @@ const Registreren = () => {
           error={errors.password}
           changeHandler={handleChange}
         />
-        <button className="btn btn--primary" onClick={handleSubmit}>
-          Registreren
-        </button>
+        <Button clickHandler={handleSubmit} isLoading={isLoading}>
+          Registeren
+        </Button>
+        {error && <span className="text--error mt-3">{error}</span>}
       </Box>
     </Layout>
   );

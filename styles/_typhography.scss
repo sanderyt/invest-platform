@@ -30,4 +30,8 @@ p {
   &--grey600 {
     color: $grey600;
   }
+
+  &--error {
+    color: $error-color;
+  }
 }

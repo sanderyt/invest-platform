@@ -1,7 +1,7 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
 
-const app = firebase.initializeApp({
+const firebaseConfig = {
   apiKey: "AIzaSyDl8sJJ2IDJHyzDa1JHh0ENMNoTulFSblk",
   authDomain: "platform-digitaal-vastgoed.firebaseapp.com",
   databaseURL: "https://platform-digitaal-vastgoed.firebaseio.com",
@@ -9,6 +9,8 @@ const app = firebase.initializeApp({
   storageBucket: "platform-digitaal-vastgoed.appspot.com",
   messagingSenderId: "1094291929792",
   appId: "1:1094291929792:web:b677b1dafcf08874c54b25"
-});
+};
+
+const app = firebase.initializeApp(firebaseConfig);
 
 export default app;
