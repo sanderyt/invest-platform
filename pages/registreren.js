@@ -1,11 +1,32 @@
 import React from "react";
 
+import useForm from "../hooks/useForm";
+import validateRegister from "../utils/validateRegister";
+
 import Layout from "../components/Layout";
 import Subheader from "../components/Subheader";
 import Box from "../components/Box";
 import InputField from "../components/InputField";
 
 const Registreren = () => {
+  const { handleChange, handleSubmit, values, errors } = useForm(
+    {
+      firstName: "",
+      lastName: "",
+      residence: "",
+      email: "",
+      password: "",
+      confirmPassword: ""
+    },
+    submit,
+    validateRegister
+  );
+
+  function submit() {
+    console.log("Submitted Succesfully");
+    console.log(values);
+  }
+
   return (
     <Layout>
       <Subheader
@@ -14,17 +35,57 @@ const Registreren = () => {
       />
       <Box>
         <h3>Registeer voor volledige toegang</h3>
-        <InputField name="firstName" label="Voornaam" type="text" />
-        <InputField name="lastName" label="Achternaam" type="text" />
-        <InputField name="residence" label="Woonplaats" type="text" />
-        <InputField name="email" label="Email" type="text" />
-        <InputField name="password" label="Wachtwoord" type="password" />
+        <InputField
+          name="firstName"
+          label="Voornaam"
+          type="text"
+          value={values.firstName}
+          error={errors.firstName}
+          onChange={handleChange}
+        />
+        <InputField
+          name="lastName"
+          label="Achternaam"
+          type="text"
+          value={values.lastName}
+          error={errors.lastName}
+          onChange={handleChange}
+        />
+        <InputField
+          name="residence"
+          label="Woonplaats"
+          type="text"
+          value={values.residence}
+          error={errors.residence}
+          onChange={handleChange}
+        />
+        <InputField
+          name="email"
+          label="Email"
+          type="text"
+          value={values.email}
+          error={errors.email}
+          onChange={handleChange}
+        />
+        <InputField
+          name="password"
+          label="Wachtwoord"
+          type="password"
+          value={values.password}
+          error={errors.password}
+          onChange={handleChange}
+        />
         <InputField
           name="confirmPassword"
           label="Wachtwoord bevestigen"
           type="password"
+          value={values.confirmPassword}
+          error={errors.password}
+          onChange={handleChange}
         />
-        <button className="btn btn--primary">Registreren</button>
+        <button className="btn btn--primary" onClick={handleSubmit}>
+          Registreren
+        </button>
       </Box>
     </Layout>
   );

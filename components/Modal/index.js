@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 const Modal = ({ children, title, isOpen, clickHandler }) => {
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "scroll";
-  }, []);
+  }, [isOpen]);
 
   const modalbody = "modal__body d-flex flex-column align-items-center";
 

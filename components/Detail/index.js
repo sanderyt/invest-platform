@@ -79,10 +79,7 @@ const Detail = () => {
           U kunt investeren vanaf €250,- voor dit object. Voor meer informatie
           of vragen, kunt u contact opnemen.
         </p>
-        <div
-          className="d-flex justify-content-around"
-          style={{ width: "100%" }}
-        >
+        <div className="d-flex flex-column justify-content-around">
           <InputField name="invest" />
           <button className="btn btn--cta">
             <i class="fas fa-coins"></i>Investeren
