@@ -38,14 +38,22 @@ const MobileNavigation = ({ isOpen }) => {
         </li>
       </ul>
       <div className="d-flex pl-4">
-        <button className="btn btn--primary">
-          <i class="fas fa-user" />
-          Inloggen
-        </button>
-        <button className="btn btn--primary">
-          <i class="fas fa-sign-in-alt"></i>
-          Registeren
-        </button>
+        <Link href="/login">
+          <a>
+            <button className="btn btn--primary">
+              <i class="fas fa-user" />
+              Inloggen
+            </button>
+          </a>
+        </Link>
+        <Link href="/registreren">
+          <a>
+            <button className="btn btn--primary">
+              <i class="fas fa-sign-in-alt"></i>
+              Registeren
+            </button>
+          </a>
+        </Link>
       </div>
       <div className="schedule-box d-flex justify-content-center align-items-center">
         <i class="fas fa-phone"></i> Plan een gesprek

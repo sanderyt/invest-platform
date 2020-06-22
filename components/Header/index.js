@@ -48,11 +48,18 @@ const Header = () => {
               </nav>
             </div>
             <div className="col-3 d-none d-md-flex align-items-center justify-content-end">
-              <button className="btn btn--primary">
-                <i className="fas fa-user"></i>Login
-              </button>
-
-              <button className="btn btn--primary">Registreren</button>
+              <Link href="/login">
+                <a>
+                  <button className="btn btn--primary">
+                    <i className="fas fa-user"></i>Login
+                  </button>
+                </a>
+              </Link>
+              <Link href="/registreren">
+                <a>
+                  <button className="btn btn--primary">Registreren</button>
+                </a>
+              </Link>
             </div>
             <div className="col-6 d-flex d-md-none justify-content-end align-items-center">
               <Hamburger clickHandler={toggleMenu} isOpen={menuClicked} />
