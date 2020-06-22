@@ -33,6 +33,7 @@
 
     @include device("mobile") {
       width: 90%;
+      height: auto;
     }
 
     &.open {

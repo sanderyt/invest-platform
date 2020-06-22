@@ -7,9 +7,10 @@ import Footer from "../Footer";
 const Layout = ({ children }) => {
   return (
     <>
-      <Head></Head>
       <Header />
-      {children}
+      <div className="content d-flex justify-content-center flex-column">
+        {children}
+      </div>
       <Footer />
     </>
   );
