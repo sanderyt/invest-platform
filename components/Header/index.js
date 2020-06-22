@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Link from "next/link";
+import { AuthContext } from "../../context/authContext";
 
 import Hamburger from "../Hamburger";
 import MobileNavigation from "../MobileNavigation";
@@ -10,6 +11,8 @@ const Header = () => {
   const toggleMenu = () => {
     setMenuClicked(!menuClicked);
   };
+
+  const context = useContext(AuthContext);
 
   return (
     <>
@@ -48,18 +51,27 @@ const Header = () => {
               </nav>
             </div>
             <div className="col-3 d-none d-md-flex align-items-center justify-content-end">
-              <Link href="/login">
-                <a>
-                  <button className="btn btn--primary">
-                    <i className="fas fa-user"></i>Login
-                  </button>
-                </a>
-              </Link>
-              <Link href="/registreren">
-                <a>
-                  <button className="btn btn--primary">Registreren</button>
-                </a>
-              </Link>
+              {context.user ? (
+                <>
+                  <span>Welcome back, {context.user.email}</span>
+                  <button className="btn btn--primary">Logout</button>
+                </>
+              ) : (
+                <>
+                  <Link href="/login">
+                    <a>
+                      <button className="btn btn--primary">
+                        <i className="fas fa-user"></i>Login
+                      </button>
+                    </a>
+                  </Link>
+                  <Link href="/registreren">
+                    <a>
+                      <button className="btn btn--primary">Registreren</button>
+                    </a>
+                  </Link>
+                </>
+              )}
             </div>
             <div className="col-6 d-flex d-md-none justify-content-end align-items-center">
               <Hamburger clickHandler={toggleMenu} isOpen={menuClicked} />
