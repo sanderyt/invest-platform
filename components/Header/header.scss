@@ -2,7 +2,8 @@ header {
   display: flex;
   background-color: $primary-color;
   color: white;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: $layer4;
 
