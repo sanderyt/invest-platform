@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <div className="content d-flex justify-content-center flex-column">
+      <div className="content d-flex justify-content-center flex-column align-items-center">
         {children}
       </div>
       <Footer />

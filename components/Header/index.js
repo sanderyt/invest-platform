@@ -19,7 +19,7 @@ const Header = () => {
             <div className="col-6 col-md-3 d-flex align-items-center justify-content-center">
               <Link href="/">
                 <a>
-                  <h2>investeer.online</h2>
+                  <h2>investeer-online.nl</h2>
                 </a>
               </Link>
             </div>
