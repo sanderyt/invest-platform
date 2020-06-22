@@ -1,0 +1,14 @@
+.footer {
+  color: white;
+
+  &__inner {
+    background-color: $primary-color;
+    height: 275px;
+    padding-top: 50px;
+  }
+
+  &__bottom {
+    height: 100px;
+    background-color: #111;
+  }
+}

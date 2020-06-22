@@ -1,0 +1,18 @@
+header {
+  display: flex;
+  background-color: $primary-color;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: $layer4;
+
+  nav {
+    ul {
+      list-style: none;
+
+      li {
+        margin-right: 25px;
+      }
+    }
+  }
+}

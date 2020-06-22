@@ -1,0 +1,10 @@
+.detail {
+  &__info {
+    border-bottom: 1px solid $grey100;
+  }
+
+  &__earnings {
+    height: 500px;
+    background-color: $grey100;
+  }
+}

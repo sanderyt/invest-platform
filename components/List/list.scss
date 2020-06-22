@@ -1,0 +1,13 @@
+.list {
+  box-shadow: $box-shadow;
+  margin: 50px;
+  border-radius: 5px;
+
+  &__heading {
+    height: 50px;
+    font-size: 1.25rem;
+    border-bottom: 1px solid #eee;
+    background-color: $cta-color;
+    color: white;
+  }
+}

@@ -1,0 +1,15 @@
+.listitem {
+  padding: 25px;
+  border-bottom: 1px solid #eee;
+  transition: 250ms;
+  color: #777;
+
+  &:hover {
+    background-color: #f7f7f7;
+    color: #444;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: 5px;
+  }
+}

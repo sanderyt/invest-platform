@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
+
+body,
+html,
+button,
+input,
+textarea {
+  font-family: "Cabin", "Calibri", "sans-serif";
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  line-height: 1.75;
+}
+
+//Write functions for this
+.text {
+  &--grey200 {
+    color: $grey200;
+  }
+
+  &--grey400 {
+    color: $grey400;
+  }
+
+  &--grey600 {
+    color: $grey600;
+  }
+}

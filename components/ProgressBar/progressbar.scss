@@ -1,0 +1,16 @@
+.progress {
+  width: 100%;
+  &__bar {
+    border-radius: $border-radius-one;
+    height: 8px;
+    background-color: #ddd;
+    position: relative;
+
+    &--active {
+      border-radius: $border-radius-one;
+      position: absolute;
+      background-color: $green-color;
+      height: 8px;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.textfield {
+  position: relative;
+
+  input {
+    border: 1px solid $grey100;
+    padding: 8px;
+    margin-left: 0px;
+    outline: none;
+    font-size: 1rem;
+  }
+
+  &__error {
+    color: red;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+}

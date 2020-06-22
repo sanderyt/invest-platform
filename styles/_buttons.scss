@@ -1,0 +1,32 @@
+.btn {
+  border: none;
+  padding: 10px 25px;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: $border-radius-one;
+  transition: 250ms;
+
+  &--lg {
+    padding: 10px 50px;
+    font-size: 1.25rem;
+  }
+
+  &--primary {
+    background-color: $cta-color;
+    color: white;
+    margin-right: 12px;
+
+    &:hover {
+      background-color: darken($cta-color, 7%);
+    }
+  }
+  &--cta {
+    background-color: $green-color;
+    color: white;
+
+    &:hover {
+      background-color: darken($green-color, 7%);
+    }
+  }
+}

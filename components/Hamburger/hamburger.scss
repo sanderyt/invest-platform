@@ -1,0 +1,26 @@
+.hamburger {
+  width: 50px;
+  cursor: pointer;
+
+  span {
+    height: 3px;
+    width: 32px;
+    background-color: white;
+    margin-top: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &.open {
+    span {
+      &:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
+  }
+}
