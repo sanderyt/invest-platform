@@ -29,8 +29,6 @@ const Registreren = () => {
     registerUser(values.email, values.password);
   }
 
-  if (user) console.log(user, "user");
-
   return (
     <Layout>
       <Subheader

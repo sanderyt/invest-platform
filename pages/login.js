@@ -27,9 +27,6 @@ const Login = () => {
   }
 
   const { loginUser, error, isLoading } = useLogin();
-  const { user } = useContext(AuthContext);
-
-  if (user) Router.push("/dashboard");
 
   return (
     <Layout>

@@ -56,6 +56,9 @@ const Header = () => {
               {context.user ? (
                 <>
                   <span>Welcome back, {context.user.email}</span>
+                  <Link href="/dashboard">
+                    <a>Dashboard</a>
+                  </Link>
                   <button className="btn btn--primary" onClick={logout}>
                     Logout
                   </button>

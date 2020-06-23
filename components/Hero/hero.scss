@@ -1,0 +1,11 @@
+.hero {
+  height: 85vh;
+  width: 100vh;
+  background-image: url("/rotterdam.jpg");
+
+  &__box {
+    background-color: rgba(0, 0, 0, 0.75);
+    margin: 50px;
+    padding: 50px;
+  }
+}
