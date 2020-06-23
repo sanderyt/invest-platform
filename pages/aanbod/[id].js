@@ -87,13 +87,19 @@ const Detail = () => {
           of vragen, kunt u contact opnemen.
         </p>
         <div
-          className="d-flex justify-content-around"
+          className="d-flex flex-column justify-content-around"
           style={{ width: "100%" }}
         >
-          <InputField name="invest" />
-          <button className="btn btn--cta">
-            <i class="fas fa-coins"></i>Investeren
-          </button>
+          <div className="d-flex justify-content-around">
+            <InputField name="invest" />
+            <button className="btn btn--cta">
+              <i class="fas fa-coins"></i>Investeren
+            </button>
+          </div>
+          <span className="text--grey400 mt-3">
+            Geschatte inkomsten per maand:
+          </span>
+          <h3 className="text--green">€67,- p/m *</h3>
         </div>
       </Modal>
     </Layout>

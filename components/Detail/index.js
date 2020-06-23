@@ -91,6 +91,7 @@ const Detail = () => {
           <button className="btn btn--cta">
             <i class="fas fa-coins"></i>Investeren
           </button>
+          <h3>Geschatte inkomsten per maand:</h3>
         </div>
       </Modal>
     </>
