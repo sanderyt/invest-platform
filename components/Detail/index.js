@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+import { AuthContext } from "../../context/auth";
 
 import Subheader from "../Subheader";
 import DetailBar from "../DetailBar";
@@ -9,6 +11,7 @@ import InputField from "../InputField";
 
 const Detail = () => {
   const [investClicked, setInvestClicked] = useState(false);
+  const context = useContext(AuthContext);
 
   const investClickHandler = () => {
     setInvestClicked(!investClicked);
@@ -25,10 +28,14 @@ const Detail = () => {
         <div className="row detail__info d-flex pb-5">
           <div className="col-md-6">
             <h2>Website URL</h2>
-            <span className="text--grey400">
-              <i class="fas fa-lock"></i>
-              Dit is alleen toegankelijk voor geregistreerde gebruikers.
-            </span>
+            {context.user ? (
+              <span>Toon de url</span>
+            ) : (
+              <span className="text--grey400">
+                <i class="fas fa-lock"></i>
+                Dit is alleen toegankelijk voor geregistreerde gebruikers.
+              </span>
+            )}
             <h2>Website KPIs</h2>
             <div className="d-flex flex-wrap">
               <KPI label="Maandelijkse winst" value="€3.200,-" isProfit />
