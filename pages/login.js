@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Router from "next/router";
 
 import useForm from "../hooks/useForm";
 import { useLogin } from "../api/firebase/hooks";
@@ -20,11 +21,16 @@ const Login = () => {
     submit,
     validateLogin
   );
-  const { loginUser, error, isLoading } = useLogin();
 
   function submit() {
     loginUser(values.email, values.password);
   }
+
+  const { loginUser, error, isLoading } = useLogin();
+  const { user } = useContext(AuthContext);
+
+  if (user) Router.push("/dashboard");
+
   return (
     <Layout>
       <Subheader subtitle="Login" />

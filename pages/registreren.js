@@ -1,7 +1,7 @@
 import React from "react";
 
 import useForm from "../hooks/useForm";
-import { useRegister } from "../api/firebase/functions";
+import { useRegister } from "../api/firebase/hooks";
 import validateRegister from "../utils/validateRegister";
 
 import Layout from "../components/Layout";
