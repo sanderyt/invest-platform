@@ -15,7 +15,9 @@ const Latest = () => {
         <WebsiteCard />
         <WebsiteCard />
       </div>
-      <button className="btn btn--lg">Bekijk alle websites</button>
+      <div className="row d-flex justify-content-center">
+        <button className="btn btn--lg">Bekijk alle websites</button>
+      </div>
     </div>
   );
 };
