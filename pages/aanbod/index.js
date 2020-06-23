@@ -8,7 +8,7 @@ import Subheader from "../../components/Subheader";
 const Aanbod = () => {
   return (
     <Layout>
-      <Subheader subtitle="Investeer in digitaal vastgoed!!!" />
+      <Subheader subtitle="Aangeboden websites" />
       <List>
         <ListItem />
         <ListItem />

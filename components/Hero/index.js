@@ -13,13 +13,22 @@ const Hero = () => {
             <h2 className="text--white">
               Genereer een stabiel passief inkomen met "online" vastgoed
             </h2>
-            <Link href="/aanbod">
-              <a>
-                <button className="btn btn--cta btn--lg">
-                  Bekijk aangeboden websites
-                </button>
-              </a>
-            </Link>
+            <div>
+              <Link href="/aanbod">
+                <a>
+                  <button className="btn btn--cta btn--lg">
+                    Bekijk aangeboden websites
+                  </button>
+                </a>
+              </Link>
+              <Link href="/concept">
+                <a>
+                  <button className="btn btn--lg">
+                    Wat is online vastgoed?
+                  </button>
+                </a>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -6,6 +6,12 @@
   border-radius: $border-radius-one;
   transition: 250ms;
   position: relative;
+  background-color: $cta-color;
+  color: white;
+
+  &:hover {
+    background-color: darken($cta-color, 7%);
+  }
 
   &--lg {
     padding: 10px 50px;

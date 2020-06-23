@@ -1,10 +1,10 @@
 .hero {
-  height: 85vh;
+  height: 100vh;
   width: 100vh;
-  background-image: url("/rotterdam.jpg");
+  background-image: url("/freedom.jpg");
 
   &__box {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.4);
     margin: 50px;
     padding: 50px;
   }

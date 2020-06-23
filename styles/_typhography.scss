@@ -38,4 +38,8 @@ p {
   &--white {
     color: white;
   }
+
+  &--primary {
+    color: $cta-color;
+  }
 }

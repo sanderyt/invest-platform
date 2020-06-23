@@ -1,5 +1,6 @@
 .subheader {
   height: 225px;
+  margin-top: 60px;
   background-image: url("https://www.holland.com/upload_mm/2/9/c/68537_fullimage_9-straatjes_1360x.jpg");
   position: relative;
 
@@ -9,13 +10,12 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.35);
   }
 
   &__title {
     color: white;
-    background-color: rgba(60, 121, 203, 0.9);
-    border-radius: $border-radius-one;
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: $layer2;
   }
 }
