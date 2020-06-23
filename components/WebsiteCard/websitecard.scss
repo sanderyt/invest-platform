@@ -1,0 +1,11 @@
+.card {
+  height: 300px;
+  background-color: white;
+  box-shadow: $box-shadow;
+  border-top: 5px solid $cta-color;
+  cursor: pointer;
+
+  &__thumb {
+    width: 100%;
+  }
+}
