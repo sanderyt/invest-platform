@@ -1,17 +1,9 @@
-import React, { useReducer, createContext } from "react";
+import React, { useReducer, createContext, useEffect } from "react";
+import app from "../api/firebase/index";
 
 const initialState = {
   user: null
 };
-
-// if (localStorage.getItem("jwtToken")) {
-//   const decodedToken = jwtDecode(localStorage.getItem("jwtToken"));
-//   if (decodedToken.exp * 1000 < Date.now()) {
-//     localStorage.removeItem("jwtToken");
-//   } else {
-//     initialState.user = decodedToken;
-//   }
-// }
 
 const AuthContext = createContext({
   user: null,
@@ -40,8 +32,22 @@ const authReducer = (state, action) => {
 const AuthProvider = props => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
+  useEffect(() => {
+    if (localStorage.getItem("authUser")) {
+      const user = JSON.parse(localStorage.getItem("authUser"));
+      login(user);
+    } else {
+      app.auth().onAuthStateChanged(authUser => {
+        if (authUser) {
+          localStorage.setItem("authUser", JSON.stringify(authUser));
+        } else {
+          localStorage.removeItem("authUser");
+        }
+      });
+    }
+  }, []);
+
   const login = userData => {
-    localStorage.setItem("loginToken", userData.token);
     dispatch({
       type: "LOGIN",
       payload: userData
@@ -49,7 +55,6 @@ const AuthProvider = props => {
   };
 
   const logout = () => {
-    localStorage.removeItem("jwtToken");
     dispatch({ type: "LOGOUT" });
   };
 
