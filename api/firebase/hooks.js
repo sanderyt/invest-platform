@@ -1,6 +1,6 @@
 import app from ".";
 import { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../../context/auth";
+import { AuthContext, AuthProvider } from "../../context/auth";
 
 export const useRegister = () => {
   const [user, setUser] = useState({});
@@ -49,4 +49,19 @@ export const useLogin = () => {
   };
 
   return { loginUser, user, error, isLoading };
+};
+
+export const useLogout = () => {
+  const context = useContext(AuthContext);
+
+  const logout = () => {
+    app
+      .auth()
+      .signOut()
+      .then(() => {
+        context.logout();
+      });
+  };
+
+  return { logout };
 };

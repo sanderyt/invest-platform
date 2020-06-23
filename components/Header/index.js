@@ -1,12 +1,14 @@
 import React, { useState, useContext } from "react";
 import Link from "next/link";
 import { AuthContext } from "../../context/auth";
+import { useLogout } from "../../api/firebase/hooks";
 
 import Hamburger from "../Hamburger";
 import MobileNavigation from "../MobileNavigation";
 
 const Header = () => {
   const [menuClicked, setMenuClicked] = useState(false);
+  const { logout } = useLogout();
 
   const toggleMenu = () => {
     setMenuClicked(!menuClicked);
@@ -54,7 +56,9 @@ const Header = () => {
               {context.user ? (
                 <>
                   <span>Welcome back, {context.user.email}</span>
-                  <button className="btn btn--primary">Logout</button>
+                  <button className="btn btn--primary" onClick={logout}>
+                    Logout
+                  </button>
                 </>
               ) : (
                 <>

@@ -56,6 +56,7 @@ const AuthProvider = props => {
 
   const logout = () => {
     dispatch({ type: "LOGOUT" });
+    localStorage.removeItem("authUser");
   };
 
   return (
