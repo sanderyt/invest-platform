@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import WebsiteCard from "../WebsiteCard";
 
@@ -16,7 +17,11 @@ const Latest = () => {
         <WebsiteCard />
       </div>
       <div className="row d-flex justify-content-center">
-        <button className="btn btn--lg">Bekijk alle websites</button>
+        <Link href="/aanbod">
+          <a>
+            <button className="btn btn--lg">Bekijk alle websites</button>
+          </a>
+        </Link>
       </div>
     </div>
   );

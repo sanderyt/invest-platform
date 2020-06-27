@@ -47,3 +47,13 @@ p {
     color: $green-color;
   }
 }
+
+.bg {
+  &--grey100 {
+    background-color: $grey100;
+  }
+
+  &--grey200 {
+    background-color: $grey200;
+  }
+}

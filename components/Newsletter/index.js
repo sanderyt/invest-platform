@@ -5,8 +5,8 @@ import Button from "../Button";
 
 const Newsletter = () => {
   return (
-    <div className="container-fluid m-5">
-      <div className="newsletter row d-flex justify-content-center">
+    <div className="container-fluid mt-5">
+      <div className="newsletter row">
         <div className="newsletter__overlay" />
         <div className="newsletter__content d-flex flex-column justify-content-center align-items-center">
           <h1>Mis nooit meer een website. Abboneer op onze alert.</h1>
