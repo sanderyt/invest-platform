@@ -25,7 +25,7 @@ const Comcept = () => {
       </div>
       <div className="row my-5">
         <div className="col-sm-6 d-flex flex-column align-items-center">
-          <h2>Bouw een passief inkomen op</h2>
+          <h2>Bouw een duurzaam passief inkomen op</h2>
           <p>
             Samen investeren in digitale objecten en passief inkomen genereren.
             Met mijn jarenlange expertise in affiliate marketing, weet ik

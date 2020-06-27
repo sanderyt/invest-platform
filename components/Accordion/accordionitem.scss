@@ -1,0 +1,20 @@
+.accordion-item {
+  &__title {
+    cursor: pointer;
+  }
+
+  &__content {
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    transform: translateY(-50%);
+    height: 0px;
+    opacity: 0;
+    transition: 1s;
+
+    &.open {
+      transform: translateY(0%);
+      height: 100%;
+      opacity: 1;
+    }
+  }
+}

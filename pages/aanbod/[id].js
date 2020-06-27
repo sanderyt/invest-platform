@@ -9,6 +9,8 @@ import KPI from "../../components/KPI";
 import Modal from "../../components/Modal";
 import InputField from "../../components/InputField";
 
+import AccordionItem from "../../components/Accordion/AccordionItem";
+
 const Detail = () => {
   const [investClicked, setInvestClicked] = useState(false);
   const { user } = useContext(AuthContext);
@@ -72,8 +74,10 @@ const Detail = () => {
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-12 d-flex justify-content-center">
+          <div className="col-12 d-flex flex-column align-items-center">
             <h2>Veelgestelde vragen</h2>
+            <AccordionItem />
+            <AccordionItem />
           </div>
         </div>
       </div>
