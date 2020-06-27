@@ -11,10 +11,8 @@ const Newsletter = () => {
         <div className="newsletter__content d-flex flex-column justify-content-center align-items-center">
           <h1>Mis nooit meer een website. Abboneer op onze alert.</h1>
           <h2>Vul hieronder je e-mailadres in en mis nooit meer een kans.</h2>
-          <div className="d-flex align-items-center">
-            <InputField />
-            <button className="btn btn--cta btn--lg">Aanmelden</button>
-          </div>
+          <InputField />
+          <button className="btn btn--cta btn--lg">Aanmelden</button>
         </div>
       </div>
     </div>
