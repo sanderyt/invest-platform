@@ -8,7 +8,7 @@ const Newsletter = () => {
     <div className="container-fluid mt-5">
       <div className="newsletter row">
         <div className="newsletter__overlay" />
-        <div className="newsletter__content d-flex flex-column justify-content-center align-items-center">
+        <div className="newsletter__content col-12 d-flex flex-column justify-content-center align-items-center">
           <h1>Mis nooit meer een website. Abboneer op onze alert.</h1>
           <h2>Vul hieronder je e-mailadres in en mis nooit meer een kans.</h2>
           <InputField />
