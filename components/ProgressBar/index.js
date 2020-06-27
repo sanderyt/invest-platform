@@ -2,7 +2,7 @@ import React from "react";
 
 const ProgressBar = ({ progress }) => {
   return (
-    <div className="progress">
+    <div className="progress  p-2">
       <div className="progress__info d-flex justify-content-between mb-2">
         <span>€34.250,- opgehaald</span>
         <span className="text--grey400">34 investeerders</span>

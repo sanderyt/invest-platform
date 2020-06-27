@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <>
-      <header>
+      <header className="d-flex align-items-center">
         <div className="container-fluid">
           <div className="header row">
             <div className="col-6 col-md-3 d-flex align-items-center justify-content-center">
