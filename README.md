@@ -1,1 +1,5 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+## Front-end investment platform
+
+How to run the development server
+
+`npm run dev`
