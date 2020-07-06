@@ -9,7 +9,7 @@
     transform: translateY(-50%);
     height: 0px;
     opacity: 0;
-    transition: 1s;
+    transition: 500ms;
 
     &.open {
       transform: translateY(0%);

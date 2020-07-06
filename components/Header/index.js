@@ -38,16 +38,16 @@ const Header = () => {
                     <Link href="/aanbod">Aangeboden websites</Link>
                   </li>
                   <li>
-                    <Link href="/">Uitleg concept</Link>
+                    <Link href="/uitleg">Uitleg concept</Link>
                   </li>
                   <li>
-                    <Link href="/">Veelgestelde vragen</Link>
+                    <Link href="/veelgestelde-vragen">Veelgestelde vragen</Link>
                   </li>
                   <li>
-                    <Link href="/">Blog</Link>
+                    <Link href="/blog">Blog</Link>
                   </li>
                   <li>
-                    <Link href="/">Contact</Link>
+                    <Link href="/contact">Contact</Link>
                   </li>
                 </ul>
               </nav>

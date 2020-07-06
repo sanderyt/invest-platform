@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <div className="footer container-fluid">
       <div className="footer__inner row">
-        <div className="col-md-4 col-sm-12 d-flex align-items-center flex-column">
-          <h2>online-belegging.nl</h2>
+        <div className="col-md-4 p-4 col-sm-12 d-flex align-items-center flex-column">
+          <h2>investeer-online.nl</h2>
           <span>
             Samen investeren in digitale objecten en passief inkomen genereren.
             Met mijn jarenlange expertise in affiliate marketing, weet ik
