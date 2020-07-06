@@ -6,6 +6,5 @@ query allWebsites {
     websiteUrl
     progressBid
     monthlyProfit
-    websiteBid
   }
 }

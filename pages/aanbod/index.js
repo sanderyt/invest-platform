@@ -6,11 +6,22 @@ import Layout from "../../components/Layout";
 import List from "../../components/List";
 import ListItem from "../../components/ListItem";
 import Subheader from "../../components/Subheader";
+import Skeleton from "../../components/Skeleton";
 
 const Aanbod = () => {
   const { loading, error, data } = useQuery(ALL_WEBSITES);
 
-  if (loading) return <h1>Loading content...</h1>;
+  if (loading)
+    return (
+      <Layout>
+        <Subheader subtitle="Aangeboden websites" />
+        <List>
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+        </List>
+      </Layout>
+    );
 
   if (data)
     return (
@@ -23,7 +34,7 @@ const Aanbod = () => {
                 id={website.id}
                 key={website.id}
                 monthlyProfit={website.monthlyProfit}
-                price={website.price}
+                price={website.websiteBid}
                 url={website.websitename}
               />
             );

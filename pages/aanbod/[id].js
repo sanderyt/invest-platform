@@ -1,5 +1,8 @@
 import React, { useState, useContext } from "react";
+import { useRouter } from "next/router";
 import { AuthContext } from "../../context/auth";
+import { useQuery } from "@apollo/react-hooks";
+import DETAIL_WEBSITE from "../../api/graphql/detailWebsite.gql";
 
 import Layout from "../../components/Layout";
 import Subheader from "../../components/Subheader";
@@ -8,16 +11,29 @@ import InvestBox from "../../components/InvestBox";
 import KPI from "../../components/KPI";
 import Modal from "../../components/Modal";
 import InputField from "../../components/InputField";
-
 import AccordionItem from "../../components/Accordion/AccordionItem";
 
 const Detail = () => {
   const [investClicked, setInvestClicked] = useState(false);
+  const { loading, error, data } = useQuery(DETAIL_WEBSITE);
   const { user } = useContext(AuthContext);
+  const router = useRouter();
 
   const investClickHandler = () => {
     setInvestClicked(!investClicked);
   };
+
+  if (loading)
+    return (
+      <Layout>
+        <Subheader
+          subtitle="Luieraanbiedingen.net"
+          description="Een affiliate website in de luiers niche"
+        />
+        <DetailBar />
+        <h1>Loading</h1>
+      </Layout>
+    );
 
   return (
     <Layout>
