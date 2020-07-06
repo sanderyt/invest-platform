@@ -1,0 +1,10 @@
+query allWebsites {
+  websites {
+    id
+    websitename
+    descriptionWebsite
+    websiteUrl
+    progressBid
+    monthlyProfit
+  }
+}
