@@ -1,3 +1,5 @@
-Frontend repo for investment platform
+## Front-end investment platform
 
-To locally run the development server: npm run dev
+How to run the development server
+
+> npm run dev
