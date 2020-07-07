@@ -7,6 +7,9 @@ import List from "../../components/List";
 import ListItem from "../../components/ListItem";
 import Subheader from "../../components/Subheader";
 import Skeleton from "../../components/Skeleton";
+import SkeletonLine from "../../components/SkeletonLine";
+
+//refactor code later
 
 const Aanbod = () => {
   const { loading, error, data } = useQuery(ALL_WEBSITES);
@@ -16,32 +19,33 @@ const Aanbod = () => {
       <Layout>
         <Subheader subtitle="Aangeboden websites" />
         <List>
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
+          <SkeletonLine />
+          <SkeletonLine />
+          <SkeletonLine />
+          <SkeletonLine />
+          <SkeletonLine />
         </List>
       </Layout>
     );
 
-  if (data)
-    return (
-      <Layout>
-        <Subheader subtitle="Aangeboden websites" />
-        <List>
-          {data.websites.map(website => {
-            return (
-              <ListItem
-                id={website.id}
-                key={website.id}
-                monthlyProfit={website.monthlyProfit}
-                price={website.websiteBid}
-                url={website.websitename}
-              />
-            );
-          })}
-        </List>
-      </Layout>
-    );
+  return (
+    <Layout>
+      <Subheader subtitle="Aangeboden websites" />
+      <List>
+        {data.websites.map(website => {
+          return (
+            <ListItem
+              id={website.id}
+              key={website.id}
+              monthlyProfit={website.monthlyProfit}
+              price={website.websiteBid}
+              url={website.websitename}
+            />
+          );
+        })}
+      </List>
+    </Layout>
+  );
 };
 
 export default Aanbod;
