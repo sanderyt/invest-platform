@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useQuery } from "@apollo/react-hooks";
-import ALL_WEBSITES from "../../api/graphql/allWebsites.gql";
+import ALL_WEBSITES from "../../api/graphql/queries/allWebsites.gql";
 
 import WebsiteCard from "../WebsiteCard";
 import SkeletonThumb from "../SkeletonThumb";

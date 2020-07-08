@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import ALL_WEBSITES from "../../api/graphql/allWebsites.gql";
+import ALL_WEBSITES from "../../api/graphql/queries/allWebsites.gql";
 
 import Layout from "../../components/Layout";
 import List from "../../components/List";

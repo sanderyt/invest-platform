@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useRouter } from "next/router";
 import { AuthContext } from "../../context/auth";
 import { useQuery } from "@apollo/react-hooks";
-import GET_DETAIL_WEBSITE from "../../api/graphql/detailWebsite.gql";
+import GET_DETAIL_WEBSITE from "../../api/graphql/queries/detailWebsite.gql";
 import refactorAmount from "../../utils/refactorAmount";
 
 import Layout from "../../components/Layout";
@@ -12,10 +12,10 @@ import InvestBox from "../../components/InvestBox";
 import ProgressBar from "../../components/ProgressBar";
 import KPI from "../../components/KPI";
 import Modal from "../../components/Modal";
-import InputField from "../../components/InputField";
 import AccordionItem from "../../components/Accordion/AccordionItem";
 import SkeletonLine from "../../components/SkeletonLine";
 import SkeletonThumb from "../../components/SkeletonThumb";
+import InvestModal from "../../components/InvestModal";
 
 const Detail = () => {
   const [investClicked, setInvestClicked] = useState(false);
@@ -134,25 +134,7 @@ const Detail = () => {
         isOpen={investClicked}
         clickHandler={investClickHandler}
       >
-        <p className="text--grey400">
-          U kunt investeren vanaf €250,- voor dit object. Voor meer informatie
-          of vragen, kunt u contact opnemen.
-        </p>
-        <div
-          className="d-flex flex-column justify-content-around"
-          style={{ width: "100%" }}
-        >
-          <div className="d-flex justify-content-around">
-            <InputField name="invest" />
-            <button className="btn btn--cta">
-              <i class="fas fa-coins"></i>Investeren
-            </button>
-          </div>
-          <span className="text--grey400 mt-3">
-            Geschatte inkomsten per maand:
-          </span>
-          <h3 className="text--green">€67,- p/m *</h3>
-        </div>
+        <InvestModal />
       </Modal>
     </Layout>
   );
