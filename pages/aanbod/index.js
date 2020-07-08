@@ -6,33 +6,29 @@ import Layout from "../../components/Layout";
 import List from "../../components/List";
 import ListItem from "../../components/ListItem";
 import Subheader from "../../components/Subheader";
-import Skeleton from "../../components/Skeleton";
 import SkeletonLine from "../../components/SkeletonLine";
-
-//refactor code later
 
 const Aanbod = () => {
   const { loading, error, data } = useQuery(ALL_WEBSITES);
 
-  if (loading)
-    return (
-      <Layout>
-        <Subheader subtitle="Aangeboden websites" />
-        <List>
+  const Content = () => {
+    if (loading)
+      return (
+        <>
           <SkeletonLine />
           <SkeletonLine />
           <SkeletonLine />
           <SkeletonLine />
           <SkeletonLine />
-        </List>
-      </Layout>
-    );
+          <SkeletonLine />
+          <SkeletonLine />
+          <SkeletonLine />
+        </>
+      );
 
-  if (data)
-    return (
-      <Layout>
-        <Subheader subtitle="Aangeboden websites" />
-        <List>
+    if (data) {
+      return (
+        <>
           {data.websites.map(website => {
             return (
               <ListItem
@@ -44,9 +40,19 @@ const Aanbod = () => {
               />
             );
           })}
-        </List>
-      </Layout>
-    );
+        </>
+      );
+    }
+  };
+
+  return (
+    <Layout>
+      <Subheader subtitle="Aangeboden websites" />
+      <List>
+        <Content />
+      </List>
+    </Layout>
+  );
 };
 
 export default Aanbod;

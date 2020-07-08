@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const ListItem = ({ id, url, monthlyProfit, price }) => {
+const ListItem = ({ id, url, monthlyProfit, price, isLoading }) => {
   return (
     <Link href={`/aanbod/${id}`}>
       <a>
