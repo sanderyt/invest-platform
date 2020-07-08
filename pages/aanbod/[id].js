@@ -96,10 +96,10 @@ const Detail = () => {
             <p className="text--grey400">{html}</p>
           </div>
           <div className="col-md-6">
-            <InvestBox websiteBid={refactorAmount(targetAmount)}>
+            <InvestBox targetAmount={refactorAmount(targetAmount)}>
               <ProgressBar
-                websiteBid={targetAmount}
-                progressBid={progressAmount}
+                targetAmount={targetAmount}
+                progressAmount={progressAmount}
                 numberOfInvestors={numberOfInvestors}
               />
               <button

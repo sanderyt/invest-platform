@@ -2,6 +2,9 @@ query allWebsites {
   websites {
     id
     url
+    thumbnail {
+      url
+    }
     shortDescription
     targetAmount
     progressAmount

@@ -1,9 +1,48 @@
 import React from "react";
 import Link from "next/link";
+import { useQuery } from "@apollo/react-hooks";
+import ALL_WEBSITES from "../../api/graphql/allWebsites.gql";
 
 import WebsiteCard from "../WebsiteCard";
+import SkeletonThumb from "../SkeletonThumb";
+import SkeletonLine from "../SkeletonLine";
 
 const Latest = () => {
+  const { loading, error, data } = useQuery(ALL_WEBSITES);
+
+  const Content = () => {
+    if (loading)
+      return (
+        <>
+          <div className="col-md-4">
+            <SkeletonThumb />
+          </div>
+          <div className="col-md-4">
+            <SkeletonThumb />
+          </div>
+          <div className="col-md-4">
+            <SkeletonThumb />
+          </div>
+        </>
+      );
+
+    if (data)
+      return data.websites.map(website => {
+        return (
+          <WebsiteCard
+            id={website.id}
+            url={website.url}
+            key={website.id}
+            thumbnail={website.thumbnail.url}
+            monthlyProfit={website.monthlyProfit}
+            numberOfInvestors={website.numberOfInvestors}
+            progressAmount={website.progressAmount}
+            targetAmount={website.targetAmount}
+          />
+        );
+      });
+  };
+
   return (
     <div className="container">
       <div className="row">
@@ -12,9 +51,7 @@ const Latest = () => {
         </div>
       </div>
       <div className="row d-flex">
-        <WebsiteCard />
-        <WebsiteCard />
-        <WebsiteCard />
+        <Content />
       </div>
       <div className="row d-flex justify-content-center">
         <Link href="/aanbod">

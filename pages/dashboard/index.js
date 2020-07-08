@@ -4,7 +4,7 @@ import Layout from "../../components/Layout";
 const Dashboard = () => {
   return (
     <Layout>
-      <div className="container-fluid">
+      <div className="container-fluid" style={{ marginTop: 200 }}>
         <div className="row">
           <div className="col-4 d-flex p-5">Hier komt de sidebar</div>
           <div className="col-8 d-flex flex-column p-5">

@@ -4,9 +4,11 @@
   border-top: 5px solid $cta-color;
   cursor: pointer;
   transition: 250ms;
+  animation: fadeIn 500ms forwards;
 
   &__thumb {
     width: 100%;
+    height: 200px;
   }
 
   &:hover {
