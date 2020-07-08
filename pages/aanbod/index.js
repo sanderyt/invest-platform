@@ -39,8 +39,8 @@ const Aanbod = () => {
                 id={website.id}
                 key={website.id}
                 monthlyProfit={website.monthlyProfit}
-                price={website.websiteBid}
-                url={website.websitename}
+                price={website.targetAmount}
+                url={website.url}
               />
             );
           })}

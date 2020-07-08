@@ -1,11 +1,10 @@
 query allWebsites {
   websites {
     id
-    websitename
-    descriptionWebsite
-    websiteUrl
-    progressBid
+    url
+    shortDescription
+    targetAmount
+    progressAmount
     monthlyProfit
-    websiteBid
   }
 }

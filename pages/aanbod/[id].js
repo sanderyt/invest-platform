@@ -14,6 +14,7 @@ import Modal from "../../components/Modal";
 import InputField from "../../components/InputField";
 import AccordionItem from "../../components/Accordion/AccordionItem";
 import SkeletonLine from "../../components/SkeletonLine";
+import SkeletonThumb from "../../components/SkeletonThumb";
 
 const Detail = () => {
   const [investClicked, setInvestClicked] = useState(false);
@@ -40,7 +41,7 @@ const Detail = () => {
               <SkeletonLine />
             </div>
             <div className="col-md-6">
-              <h2>Hoi</h2>
+              <SkeletonThumb />
             </div>
           </div>
         </div>
@@ -49,26 +50,23 @@ const Detail = () => {
 
   const {
     id,
-    websitename,
-    descriptionWebsite,
-    websiteUrl,
-    websiteBid,
-    progressBid,
+    url,
+    shortDescription,
+    targetAmount,
+    progressAmount,
     monthlyProfit
   } = data.websites[0];
 
-  if (data) console.log(websitename);
-
   return (
     <Layout>
-      <Subheader subtitle={websiteUrl} description={descriptionWebsite} />
+      <Subheader subtitle={url} description={shortDescription} />
       <DetailBar />
       <div className="container detail">
         <div className="row detail__info d-flex pb-5">
           <div className="col-md-6">
             <h2>Website URL</h2>
             {user ? (
-              <h3>{websiteUrl}</h3>
+              <h3>{url}</h3>
             ) : (
               <span className="text--grey400">
                 <i class="fas fa-lock"></i>
@@ -84,11 +82,14 @@ const Detail = () => {
               <KPI label="Conversiepercentage" value="2%" />
             </div>
             <h3>Beschrijving van dit object</h3>
-            <p className="text--grey400">{descriptionWebsite}</p>
+            <p className="text--grey400">{shortDescription}</p>
           </div>
           <div className="col-md-6">
-            <InvestBox websiteBid={websiteBid}>
-              <ProgressBar websiteBid={websiteBid} progressBid={progressBid} />
+            <InvestBox websiteBid={targetAmount}>
+              <ProgressBar
+                websiteBid={targetAmount}
+                progressBid={progressAmount}
+              />
               <button
                 className="btn btn--cta btn--lg"
                 onClick={investClickHandler}

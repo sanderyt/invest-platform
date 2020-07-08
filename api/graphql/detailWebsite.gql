@@ -1,11 +1,10 @@
 query detailWebsite($id: ID!) {
   websites(where: { id: $id }) {
     id
-    websitename
-    descriptionWebsite
-    websiteUrl
-    websiteBid
-    progressBid
+    url
+    shortDescription
+    targetAmount
+    progressAmount
     monthlyProfit
   }
 }
