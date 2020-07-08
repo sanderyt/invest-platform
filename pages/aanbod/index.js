@@ -28,24 +28,25 @@ const Aanbod = () => {
       </Layout>
     );
 
-  return (
-    <Layout>
-      <Subheader subtitle="Aangeboden websites" />
-      <List>
-        {data.websites.map(website => {
-          return (
-            <ListItem
-              id={website.id}
-              key={website.id}
-              monthlyProfit={website.monthlyProfit}
-              price={website.websiteBid}
-              url={website.websitename}
-            />
-          );
-        })}
-      </List>
-    </Layout>
-  );
+  if (data)
+    return (
+      <Layout>
+        <Subheader subtitle="Aangeboden websites" />
+        <List>
+          {data.websites.map(website => {
+            return (
+              <ListItem
+                id={website.id}
+                key={website.id}
+                monthlyProfit={website.monthlyProfit}
+                price={website.websiteBid}
+                url={website.websitename}
+              />
+            );
+          })}
+        </List>
+      </Layout>
+    );
 };
 
 export default Aanbod;

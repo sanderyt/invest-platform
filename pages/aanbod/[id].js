@@ -2,22 +2,26 @@ import React, { useState, useContext } from "react";
 import { useRouter } from "next/router";
 import { AuthContext } from "../../context/auth";
 import { useQuery } from "@apollo/react-hooks";
-import DETAIL_WEBSITE from "../../api/graphql/detailWebsite.gql";
+import GET_DETAIL_WEBSITE from "../../api/graphql/detailWebsite.gql";
 
 import Layout from "../../components/Layout";
 import Subheader from "../../components/Subheader";
 import DetailBar from "../../components/DetailBar";
 import InvestBox from "../../components/InvestBox";
+import ProgressBar from "../../components/ProgressBar";
 import KPI from "../../components/KPI";
 import Modal from "../../components/Modal";
 import InputField from "../../components/InputField";
 import AccordionItem from "../../components/Accordion/AccordionItem";
+import SkeletonLine from "../../components/SkeletonLine";
 
 const Detail = () => {
   const [investClicked, setInvestClicked] = useState(false);
-  const { loading, error, data } = useQuery(DETAIL_WEBSITE);
-  const { user } = useContext(AuthContext);
   const router = useRouter();
+  const { loading, error, data } = useQuery(GET_DETAIL_WEBSITE, {
+    variables: { id: router.query.id }
+  });
+  const { user } = useContext(AuthContext);
 
   const investClickHandler = () => {
     setInvestClicked(!investClicked);
@@ -26,28 +30,45 @@ const Detail = () => {
   if (loading)
     return (
       <Layout>
-        <Subheader
-          subtitle="Luieraanbiedingen.net"
-          description="Een affiliate website in de luiers niche"
-        />
+        <Subheader />
         <DetailBar />
-        <h1>Loading</h1>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 d-flex flex-column">
+              <SkeletonLine />
+              <SkeletonLine />
+              <SkeletonLine />
+            </div>
+            <div className="col-md-6">
+              <h2>Hoi</h2>
+            </div>
+          </div>
+        </div>
       </Layout>
     );
 
+  const {
+    id,
+    websitename,
+    descriptionWebsite,
+    websiteUrl,
+    websiteBid,
+    progressBid,
+    monthlyProfit
+  } = data.websites[0];
+
+  if (data) console.log(websitename);
+
   return (
     <Layout>
-      <Subheader
-        subtitle="Luieraanbiedingen.net"
-        description="Een affiliate website in de luiers niche"
-      />
+      <Subheader subtitle={websiteUrl} description={descriptionWebsite} />
       <DetailBar />
       <div className="container detail">
         <div className="row detail__info d-flex pb-5">
           <div className="col-md-6">
             <h2>Website URL</h2>
             {user ? (
-              <h3>www.luieraanbiedingen.net</h3>
+              <h3>{websiteUrl}</h3>
             ) : (
               <span className="text--grey400">
                 <i class="fas fa-lock"></i>
@@ -56,27 +77,25 @@ const Detail = () => {
             )}
             <h2>Website KPIs</h2>
             <div className="d-flex flex-wrap">
-              <KPI label="Maandelijkse winst" value="€3.200,-" isProfit />
+              <KPI label="Maandelijkse winst" value={monthlyProfit} isProfit />
               <KPI label="Maandelijkse omzet" value="€3.400,-" />
               <KPI label="Inleg v.a." value="€250,-" />
               <KPI label="Bezoekers p/m" value="3240" />
               <KPI label="Conversiepercentage" value="2%" />
             </div>
             <h3>Beschrijving van dit object</h3>
-            <p className="text--grey400">
-              De aangeboden website is opgebouwd rond het onderwerp baby's en
-              luiers. Middels affiliate links genereert de eigenaar maandelijks
-              een interessant bedrag aan affiliate inkomsten. Naast deze
-              affiliate links lopen er directe afspraken met grote Nederlandse
-              webwinkels die rechtstreeks exposure inkopen voor bepaalde thema
-              en/of actieweken De onderneming beschikt over 25.000 unieke en
-              double opt-in emailadressen. Let op: de cijfers zijn over 2017. De
-              winst is netto-netto en dus al gecorrigeerd voor de uren die de
-              verkoper er maandelijks insteekt.
-            </p>
+            <p className="text--grey400">{descriptionWebsite}</p>
           </div>
           <div className="col-md-6">
-            <InvestBox clickHandler={investClickHandler} />
+            <InvestBox websiteBid={websiteBid}>
+              <ProgressBar websiteBid={websiteBid} progressBid={progressBid} />
+              <button
+                className="btn btn--cta btn--lg"
+                onClick={investClickHandler}
+              >
+                <i class="fas fa-coins"></i>Investeer
+              </button>
+            </InvestBox>
           </div>
         </div>
       </div>
