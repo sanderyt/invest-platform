@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { AuthContext } from "../../context/auth";
 import { useQuery } from "@apollo/react-hooks";
 import GET_DETAIL_WEBSITE from "../../api/graphql/detailWebsite.gql";
+import refactorAmount from "../../utils/refactorAmount";
 
 import Layout from "../../components/Layout";
 import Subheader from "../../components/Subheader";
@@ -49,12 +50,14 @@ const Detail = () => {
     );
 
   const {
-    id,
     url,
     shortDescription,
+    description: { html },
+    numberOfInvestors,
     targetAmount,
     progressAmount,
-    monthlyProfit
+    monthlyProfit,
+    yearlyProfit
   } = data.websites[0];
 
   return (
@@ -75,20 +78,29 @@ const Detail = () => {
             )}
             <h2>Website KPIs</h2>
             <div className="d-flex flex-wrap">
-              <KPI label="Maandelijkse winst" value={monthlyProfit} isProfit />
-              <KPI label="Maandelijkse omzet" value="€3.400,-" />
+              <KPI
+                label="Jaarlijkse winst"
+                value={`€${refactorAmount(yearlyProfit)},-`}
+                isProfit
+              />
+              <KPI
+                label="Maandelijkse winst"
+                value={`€${refactorAmount(monthlyProfit)},-`}
+                isProfit
+              />
               <KPI label="Inleg v.a." value="€250,-" />
               <KPI label="Bezoekers p/m" value="3240" />
               <KPI label="Conversiepercentage" value="2%" />
             </div>
             <h3>Beschrijving van dit object</h3>
-            <p className="text--grey400">{shortDescription}</p>
+            <p className="text--grey400">{html}</p>
           </div>
           <div className="col-md-6">
-            <InvestBox websiteBid={targetAmount}>
+            <InvestBox websiteBid={refactorAmount(targetAmount)}>
               <ProgressBar
                 websiteBid={targetAmount}
                 progressBid={progressAmount}
+                numberOfInvestors={numberOfInvestors}
               />
               <button
                 className="btn btn--cta btn--lg"

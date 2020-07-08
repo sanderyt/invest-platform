@@ -6,5 +6,10 @@ query allWebsites {
     targetAmount
     progressAmount
     monthlyProfit
+    yearlyProfit
+    numberOfInvestors
+    description {
+      html
+    }
   }
 }

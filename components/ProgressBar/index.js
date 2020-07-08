@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProgressBar = ({ progressBid, websiteBid }) => {
+const ProgressBar = ({ progressBid, websiteBid, numberOfInvestors }) => {
   const progressRatio = (progressBid, websiteBid) => {
     return (progressBid / websiteBid) * 100;
   };
@@ -9,7 +9,7 @@ const ProgressBar = ({ progressBid, websiteBid }) => {
     <div className="progress  p-2">
       <div className="progress__info d-flex justify-content-between mb-2">
         <span>€{progressBid},- opgehaald</span>
-        <span className="text--grey400">34 investeerders</span>
+        <span className="text--grey400">{numberOfInvestors} investeerders</span>
       </div>
       <div className="progress__bar">
         <div

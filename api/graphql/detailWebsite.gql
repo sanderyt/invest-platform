@@ -6,5 +6,10 @@ query detailWebsite($id: ID!) {
     targetAmount
     progressAmount
     monthlyProfit
+    yearlyProfit
+    numberOfInvestors
+    description {
+      html
+    }
   }
 }
