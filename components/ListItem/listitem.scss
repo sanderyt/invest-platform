@@ -4,6 +4,7 @@
   transition: 250ms;
   color: #777;
   background-color: white;
+  animation: fadeIn 500ms forwards;
 
   &:hover {
     background-color: $grey100;
