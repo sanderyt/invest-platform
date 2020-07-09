@@ -1,11 +1,16 @@
 .hero {
   height: 100vh;
   width: 100vh;
-  background-image: url("/freedom.jpg");
+  background-image: url("/ubud.jpg");
+
+  &__container {
+    height: 100%;
+  }
 
   &__box {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
     margin: 50px;
     padding: 50px;
+    animation: slideIn 1s forwards;
   }
 }

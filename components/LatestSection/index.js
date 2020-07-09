@@ -41,6 +41,10 @@ const Latest = () => {
           />
         );
       });
+
+    if (error) {
+      return <h3 className="m-2 text--error">{error.message}</h3>;
+    }
   };
 
   return (

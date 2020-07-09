@@ -4,7 +4,7 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <div className="hero container-fluid">
-      <div className="row">
+      <div className="hero__container row">
         <div className="col-12 d-flex flex-column align-items-center justify-content-center">
           <div className="hero__box d-flex flex-column align-items-center justify-content-center">
             <h1 className="mt-5 text--white">
@@ -24,9 +24,7 @@ const Hero = () => {
               </Link>
               <Link href="/concept">
                 <a>
-                  <button className="btn btn--lg">
-                    Wat is online vastgoed?
-                  </button>
+                  <button className="btn btn--lg">Uitleg concept</button>
                 </a>
               </Link>
             </div>
