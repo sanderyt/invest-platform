@@ -1,19 +1,15 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../context/auth";
+import React from "react";
+import { ProtectedPage } from "../../components/ProtectedPage";
 
 import Layout from "../../components/Layout";
 import DashboardLayout from "../../components/DashboardLayout";
 import DashboardCard from "../../components/DashboardCard";
 
 const Dashboard = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
-
   return (
     <Layout>
       <DashboardLayout>
         <DashboardCard>
-          <span>Welkom terug, {user.email}</span>
           <p>
             Laat hier KPI's zien mbt investeringen, ROI, hoeveel al verdiend
             etc...
@@ -37,4 +33,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default ProtectedPage(Dashboard);

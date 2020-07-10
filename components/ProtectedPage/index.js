@@ -1,12 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../../context/auth";
-import Router from "next/router";
+import { useRouter } from "next/router";
 
-const ProtectedPage = ({ children }) => {
-  const { user } = useContext(AuthContext);
+export function ProtectedPage(Component) {
+  return () => {
+    const { user } = useContext(AuthContext);
+    const router = useRouter();
 
-  if (user) return children;
-  if (!user) Router.push("/login");
-};
+    useEffect(() => {
+      if (!user) router.push("/login");
+    }, [user]);
 
-export default ProtectedPage;
+    return <Component {...arguments} />;
+  };
+}

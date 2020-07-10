@@ -1,6 +1,7 @@
 import app from ".";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext, AuthProvider } from "../../context/auth";
+import useRouter from "next/router";
 
 export const useRegister = () => {
   const [user, setUser] = useState({});
