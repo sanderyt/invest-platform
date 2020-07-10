@@ -1,0 +1,12 @@
+.dashboard {
+  margin-top: 65px;
+
+  &__sidebar {
+    background-color: $grey100;
+    height: 100vh;
+  }
+
+  &__content {
+    background-color: #f7f7f7;
+  }
+}

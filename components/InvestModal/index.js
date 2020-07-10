@@ -33,7 +33,7 @@ const InvestModal = ({ progressAmount, numberOfInvestors, websiteId }) => {
     }
   });
 
-  console.log(error);
+  if (loading) console.log("hi");
 
   function submit() {
     addInvestment();

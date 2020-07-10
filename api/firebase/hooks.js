@@ -13,11 +13,9 @@ export const useRegister = () => {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(response => {
-        console.log(response, "succes");
         setIsLoading(false);
       })
       .catch(error => {
-        console.log(error, "error");
         setError(error.message);
         setIsLoading(false);
       });

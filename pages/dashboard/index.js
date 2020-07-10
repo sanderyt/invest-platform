@@ -1,23 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/auth";
+
 import Layout from "../../components/Layout";
+import DashboardLayout from "../../components/DashboardLayout";
+import DashboardCard from "../../components/DashboardCard";
 
 const Dashboard = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
+
   return (
     <Layout>
-      <div className="container-fluid" style={{ marginTop: 200 }}>
-        <div className="row">
-          <div className="col-4 d-flex p-5">Hier komt de sidebar</div>
-          <div className="col-8 d-flex flex-column p-5">
-            Van het dashboard moet je ook weer een layout component van maken!
-            Het dashboard heeft de volgende functies:
-            <ul>
-              <li>Investeringen kunnen inzien die je gegaan hebt</li>
-              <li>Alle facturen die je krijgt en uitbetalingen</li>
-              <li>Resultaten van investeringen kunnen inzien</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <DashboardLayout>
+        <DashboardCard>
+          <span>Welkom terug, {user.email}</span>
+          <p>
+            Laat hier KPI's zien mbt investeringen, ROI, hoeveel al verdiend
+            etc...
+            https://nl.freepik.com/premium-psd/heyinz-invoice-admin-dashboard-ui-kit_6960231.htm
+          </p>
+        </DashboardCard>
+        <DashboardCard>
+          <h2>Mijn investeringen</h2>
+          <p>Laat hier alle investeringen zien</p>
+        </DashboardCard>
+        <DashboardCard>
+          <h2>Nieuwste mogelijkheden</h2>
+          <p>Laat nieuwste websites zien</p>
+        </DashboardCard>
+        <DashboardCard>
+          <h2>Nieuwste mogelijkheden</h2>
+          <p>Laat nieuwste websites zien</p>
+        </DashboardCard>
+      </DashboardLayout>
     </Layout>
   );
 };
