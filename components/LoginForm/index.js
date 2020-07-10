@@ -22,7 +22,7 @@ const Login = () => {
 
   const { loginUser, error, isLoading } = useLogin();
   return (
-    <div>
+    <div className="d-flex flex-column align-items-center">
       <h3>Inloggen</h3>
       <InputField
         name="email"

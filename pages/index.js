@@ -1,4 +1,5 @@
 import React from "react";
+import ScrollAnimation from "react-animate-on-scroll";
 
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";

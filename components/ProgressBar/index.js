@@ -1,5 +1,7 @@
 import React from "react";
 
+import refactorAmount from "../../utils/refactorAmount";
+
 const ProgressBar = ({ progressAmount, targetAmount, numberOfInvestors }) => {
   const progressRatio = (progressAmount, targetAmount) => {
     return Math.floor((progressAmount / targetAmount) * 100);
@@ -8,7 +10,7 @@ const ProgressBar = ({ progressAmount, targetAmount, numberOfInvestors }) => {
   return (
     <div className="progress  p-2">
       <div className="progress__info d-flex justify-content-between mb-2">
-        <span>€{progressAmount},- opgehaald</span>
+        <span>€{refactorAmount(progressAmount)},- opgehaald</span>
         <span className="text--grey400">
           {numberOfInvestors} investeerder{numberOfInvestors !== 1 && "s"}
         </span>

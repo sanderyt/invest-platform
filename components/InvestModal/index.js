@@ -26,6 +26,7 @@ const InvestModal = ({ progressAmount, numberOfInvestors, websiteId }) => {
     },
     update(_, result) {
       setAddedInvestment(true);
+      console.log(result);
     },
     onError({ graphQLErrors }) {
       console.log(graphQLErrors);
