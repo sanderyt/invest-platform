@@ -42,7 +42,16 @@ const InvestModal = ({ progressAmount, numberOfInvestors, websiteId }) => {
     <div>
       {user ? (
         addedInvestment ? (
-          <h1>Bedankt voor uw investering!</h1>
+          <>
+            <h3>Bedankt voor uw investering.</h3>
+            <span className="text--green">
+              U heeft €{values.investedAmount},- geinvesteerd.
+            </span>
+            <p>
+              Wanneer het doelbedrag is opgehaald, zult u een mail hierover
+              ontvangen.
+            </p>
+          </>
         ) : (
           <>
             <p className="text--grey400">

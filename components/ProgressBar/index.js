@@ -9,12 +9,14 @@ const ProgressBar = ({ progressAmount, targetAmount, numberOfInvestors }) => {
     <div className="progress  p-2">
       <div className="progress__info d-flex justify-content-between mb-2">
         <span>€{progressAmount},- opgehaald</span>
-        <span className="text--grey400">{numberOfInvestors} investeerders</span>
+        <span className="text--grey400">
+          {numberOfInvestors} investeerder{numberOfInvestors !== 1 && "s"}
+        </span>
       </div>
       <div className="progress__bar">
         <div
           className="progressbar__bar progress__bar--active"
-          style={{ width: progressRatio(progressAmount, targetAmount) }}
+          style={{ width: `${progressRatio(progressAmount, targetAmount)}%` }}
         ></div>
       </div>
       <div className="progress_goal d-flex justify-content-between mt-2">
