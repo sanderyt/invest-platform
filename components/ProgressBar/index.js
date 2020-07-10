@@ -2,7 +2,7 @@ import React from "react";
 
 const ProgressBar = ({ progressAmount, targetAmount, numberOfInvestors }) => {
   const progressRatio = (progressAmount, targetAmount) => {
-    return (progressAmount / targetAmount) * 100;
+    return Math.floor((progressAmount / targetAmount) * 100);
   };
 
   return (

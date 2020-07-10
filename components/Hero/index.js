@@ -12,7 +12,8 @@ const Hero = () => {
               <span className="text--green">winstgevende</span> websites
             </h1>
             <h2 className="text--white">
-              Genereer een stabiel passief inkomen met "online" vastgoed
+              Investeer samen in affiliate websites en genereer duurzaam passief
+              inkomen
             </h2>
             <div>
               <Link href="/aanbod">
@@ -22,9 +23,9 @@ const Hero = () => {
                   </button>
                 </a>
               </Link>
-              <Link href="/concept">
+              <Link href="/uitleg">
                 <a>
-                  <button className="btn btn--lg">Uitleg concept</button>
+                  <button className="btn btn--lg">Hoe werkt het?</button>
                 </a>
               </Link>
             </div>

@@ -134,7 +134,11 @@ const Detail = () => {
         isOpen={investClicked}
         clickHandler={investClickHandler}
       >
-        <InvestModal />
+        <InvestModal
+          progressAmount={progressAmount}
+          numberOfInvestors={numberOfInvestors}
+          websiteId={router.query.id}
+        />
       </Modal>
     </Layout>
   );

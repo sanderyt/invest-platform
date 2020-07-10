@@ -1,1 +1,9 @@
-mutation 
+mutation AmountInvested($id: ID!, $investment: Int!, $investors: Int!) {
+  updateWebsite(
+    where: { id: $id }
+    data: { numberOfInvestors: $investors, progressAmount: $investment }
+  ) {
+    progressAmount
+    numberOfInvestors
+  }
+}
