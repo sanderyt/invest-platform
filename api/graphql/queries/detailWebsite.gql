@@ -3,6 +3,7 @@ query detailWebsite($id: ID!) {
     id
     url
     shortDescription
+    slug
     targetAmount
     progressAmount
     monthlyProfit

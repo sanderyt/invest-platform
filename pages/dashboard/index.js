@@ -15,6 +15,10 @@ const Dashboard = () => {
             etc...
             https://nl.freepik.com/premium-psd/heyinz-invoice-admin-dashboard-ui-kit_6960231.htm
           </p>
+          <p>
+            Protected routes:
+            https://medium.com/@tafka_labs/auth-redirect-in-nextjs-3a3a524c0a06
+          </p>
         </DashboardCard>
         <DashboardCard>
           <h2>Mijn investeringen</h2>

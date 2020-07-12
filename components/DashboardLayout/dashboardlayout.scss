@@ -9,4 +9,23 @@
   &__content {
     background-color: #f7f7f7;
   }
+
+  &__navigation {
+    list-style: none;
+    width: 100%;
+
+    li {
+      display: flex;
+      padding: 20px;
+      justify-content: center;
+      width: 100%;
+      font-size: 1.1rem;
+      transition: 250ms;
+
+      &:hover {
+        background-color: darken($grey100, 5%);
+        color: $cta-color;
+      }
+    }
+  }
 }

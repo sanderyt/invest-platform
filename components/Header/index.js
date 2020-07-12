@@ -38,10 +38,10 @@ const Header = () => {
                     <Link href="/aanbod">Aangeboden websites</Link>
                   </li>
                   <li>
-                    <Link href="/uitleg">Uitleg concept</Link>
+                    <Link href="/uitleg">Het concept</Link>
                   </li>
                   <li>
-                    <Link href="/veelgestelde-vragen">Veelgestelde vragen</Link>
+                    <Link href="/veelgestelde-vragen">Over ons</Link>
                   </li>
                   <li>
                     <Link href="/blog">Blog</Link>
