@@ -2,15 +2,20 @@ import React from "react";
 
 import useForm from "../hooks/useForm";
 import { useRegister } from "../api/firebase/hooks";
+import { useMutation } from "@apollo/react-hooks";
+import { useRouter } from "next/router";
 import validateRegister from "../utils/validateRegister";
+import ADD_ACCOUNT from "../api/graphql/mutations/addAccount.gql";
 
 import Layout from "../components/Layout";
 import Subheader from "../components/Subheader";
 import Box from "../components/Box";
 import InputField from "../components/InputField";
 import Button from "../components/Button";
+import { Router } from "next/router";
 
 const Registreren = () => {
+  const router = useRouter();
   const { handleChange, handleSubmit, values, errors } = useForm(
     {
       firstName: "",
@@ -24,9 +29,26 @@ const Registreren = () => {
     validateRegister
   );
   const { registerUser, user, error, isLoading } = useRegister();
+  const [addAccount, { data }] = useMutation(ADD_ACCOUNT, {
+    variables: {
+      firstName: values.firstName,
+      lastName: values.lastName,
+      residence: values.residence,
+      email: values.email,
+      firebaseUid: "1234"
+    },
+    update(_, result) {
+      console.log(result);
+    },
+    onError({ graphQLErrors }) {
+      console.log(graphQLErrors);
+    }
+  });
 
   function submit() {
     registerUser(values.email, values.password);
+    addAccount();
+    router.push("/dashboard");
   }
 
   return (
