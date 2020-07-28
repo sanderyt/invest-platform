@@ -4,6 +4,7 @@ import validateAmount from "../../utils/validateInvestment";
 import { useMutation } from "@apollo/react-hooks";
 import { AuthContext } from "../../context/auth";
 import ADD_INVESTMENT from "../../api/graphql/mutations/investedAmount.gql";
+import GET_DETAIL_WEBSITE from "../../api/graphql/queries/detailWebsite.gql";
 
 import InputField from "../../components/InputField";
 import Button from "../Button";
@@ -30,10 +31,11 @@ const InvestModal = ({ progressAmount, numberOfInvestors, websiteId }) => {
     },
     onError({ graphQLErrors }) {
       console.log(graphQLErrors);
-    }
+    },
+    refetchQueries: [
+      { query: GET_DETAIL_WEBSITE, variables: { id: websiteId } }
+    ]
   });
-
-  if (loading) console.log("hi");
 
   function submit() {
     addInvestment();
