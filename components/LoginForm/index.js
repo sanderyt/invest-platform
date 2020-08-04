@@ -1,7 +1,9 @@
 import React from "react";
 import useForm from "../../hooks/useForm";
-import { useLogin } from "../../api/firebase/hooks";
 import validateLogin from "../../utils/validateLogin";
+import { useMutation } from "@apollo/client";
+
+import LOGIN_USER from "../../graphql/graphql/mutations/login.gql";
 
 import InputField from "../InputField";
 import Button from "../Button";
@@ -15,12 +17,20 @@ const Login = () => {
     submit,
     validateLogin
   );
+  const [loginUser, { data, loading, error }] = useMutation(LOGIN_USER, {
+    variables: {},
+    update(_, result) {
+      console.log(result);
+    },
+    onError({ graphQLErrors }) {
+      console.log(graphQLErrors);
+    }
+  });
 
   function submit() {
-    loginUser(values.email, values.password);
+    loginUser();
   }
 
-  const { loginUser, error, isLoading } = useLogin();
   return (
     <div className="d-flex flex-column align-items-center">
       <h3>Inloggen</h3>
@@ -40,7 +50,7 @@ const Login = () => {
         error={errors.password}
         changeHandler={handleChange}
       />
-      <Button clickHandler={handleSubmit} isLoading={isLoading}>
+      <Button clickHandler={handleSubmit} isLoading={loading}>
         Inloggen
       </Button>
       {error && <span className="text--error mt-3">{error}</span>}

@@ -1,0 +1,20 @@
+mutation CreateUser(
+  $firstName: String!
+  $lastName: String!
+  $residence: String!
+  $email: String!
+) {
+  createAccount(
+    data: {
+      firstName: $firstName
+      lastName: $lastName
+      residence: $residence
+      email: $email
+    }
+  ) {
+    firstName
+    lastName
+    residence
+    email
+  }
+}

@@ -12,21 +12,21 @@ import InvestBox from "../../components/InvestBox";
 import ProgressBar from "../../components/ProgressBar";
 import KPI from "../../components/KPI";
 import Modal from "../../components/Modal";
-import AccordionItem from "../../components/Accordion/AccordionItem";
 import SkeletonLine from "../../components/SkeletonLine";
 import SkeletonThumb from "../../components/SkeletonThumb";
 import InvestModal from "../../components/InvestModal";
 
 const Detail = () => {
-  const [investClicked, setInvestClicked] = useState(false);
   const router = useRouter();
+  const { user } = useContext(AuthContext);
   const { loading, error, data } = useQuery(GET_DETAIL_WEBSITE, {
     variables: { id: router.query.id }
   });
-  const { user } = useContext(AuthContext);
 
-  const investClickHandler = () => {
-    setInvestClicked(!investClicked);
+  const [investModalClicked, setInvestModalClicked] = useState(false);
+
+  const investModalHandler = () => {
+    setInvestModalClicked(!investModalClicked);
   };
 
   if (loading)
@@ -104,7 +104,7 @@ const Detail = () => {
               />
               <button
                 className="btn btn--cta btn--lg"
-                onClick={investClickHandler}
+                onClick={investModalHandler}
               >
                 <i class="fas fa-coins"></i>Investeer
               </button>
@@ -120,19 +120,10 @@ const Detail = () => {
           </div>
         </div>
       </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-12 d-flex flex-column align-items-center">
-            <h2>Veelgestelde vragen</h2>
-            <AccordionItem />
-            <AccordionItem />
-          </div>
-        </div>
-      </div>
       <Modal
         title="Investeer in object #15452"
-        isOpen={investClicked}
-        clickHandler={investClickHandler}
+        isOpen={investModalClicked}
+        clickHandler={investModalHandler}
       >
         <InvestModal
           progressAmount={progressAmount}
