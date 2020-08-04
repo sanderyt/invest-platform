@@ -59,8 +59,10 @@ const Detail = () => {
     investments
   } = data.website;
 
-  const calculateProgress = investments => {
-    return 4000;
+  const calculateProgress = () => {
+    let total = 0;
+    investments.map(investment => (total += investment.amountInvested));
+    return total;
   };
 
   return (
