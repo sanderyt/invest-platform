@@ -61,7 +61,7 @@ const Login = () => {
       <Button clickHandler={handleSubmit} isLoading={loading}>
         Inloggen
       </Button>
-      {error && <span className="text--error mt-3">{error}</span>}
+      {/* {error && <span className="text--error mt-3">{error}</span>} */}
     </div>
   );
 };

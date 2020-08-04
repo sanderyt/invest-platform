@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useRouter } from "next/router";
 import { AuthContext } from "../../context/auth";
 import { useQuery } from "@apollo/react-hooks";
-import GET_DETAIL_WEBSITE from "../../api/graphql/queries/detailWebsite.gql";
+import GET_DETAIL_WEBSITE from "../../graphql/graphql/queries/detailWebsite.gql";
 import refactorAmount from "../../utils/refactorAmount";
 
 import Layout from "../../components/Layout";
@@ -51,18 +51,21 @@ const Detail = () => {
 
   const {
     url,
-    shortDescription,
-    description: { html },
-    numberOfInvestors,
-    targetAmount,
-    progressAmount,
+    smallDescription,
     monthlyProfit,
-    yearlyProfit
-  } = data.websites[0];
+    monthlyRevenue,
+    detailDescription,
+    targetAmount,
+    investments
+  } = data.website;
+
+  const calculateProgress = investments => {
+    return 4000;
+  };
 
   return (
     <Layout>
-      <Subheader subtitle={url} description={shortDescription} />
+      <Subheader subtitle={url} description={smallDescription} />
       <DetailBar />
       <div className="container detail">
         <div className="row detail__info d-flex pb-5">
@@ -80,7 +83,7 @@ const Detail = () => {
             <div className="d-flex flex-wrap">
               <KPI
                 label="Jaarlijkse winst"
-                value={`€${refactorAmount(yearlyProfit)},-`}
+                value={`€${refactorAmount(monthlyProfit)},-`}
                 isProfit
               />
               <KPI
@@ -93,14 +96,14 @@ const Detail = () => {
               <KPI label="Conversiepercentage" value="2%" />
             </div>
             <h3>Beschrijving van dit object</h3>
-            <p className="text--grey400">{html}</p>
+            <p className="text--grey400">{detailDescription}</p>
           </div>
           <div className="col-md-6">
             <InvestBox targetAmount={refactorAmount(targetAmount)}>
               <ProgressBar
                 targetAmount={targetAmount}
-                progressAmount={progressAmount}
-                numberOfInvestors={numberOfInvestors}
+                progressAmount={calculateProgress()}
+                numberOfInvestors={3}
               />
               <button
                 className="btn btn--cta btn--lg"
@@ -126,8 +129,8 @@ const Detail = () => {
         clickHandler={investModalHandler}
       >
         <InvestModal
-          progressAmount={progressAmount}
-          numberOfInvestors={numberOfInvestors}
+          progressAmount={calculateProgress()}
+          numberOfInvestors={3}
           websiteId={router.query.id}
         />
       </Modal>

@@ -3,8 +3,8 @@ import useForm from "../../hooks/useForm";
 import validateAmount from "../../utils/validateInvestment";
 import { useMutation } from "@apollo/react-hooks";
 import { AuthContext } from "../../context/auth";
-import ADD_INVESTMENT from "../../graphql/graphql/mutations/"
-import GET_DETAIL_WEBSITE from "../../api/graphql/queries/detailWebsite.gql";
+import ADD_INVESTMENT from "../../graphql/graphql/mutations/addInvestment.gql";
+import GET_DETAIL_WEBSITE from "../../graphql/graphql/queries/detailWebsite.gql";
 
 import InputField from "../../components/InputField";
 import Button from "../Button";

@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import ALL_WEBSITES from "../../api/graphql/queries/allWebsites.gql";
+import ALL_WEBSITES from "../../graphql/graphql/queries/allWebsites.gql";
 
 import Layout from "../../components/Layout";
 import List from "../../components/List";
@@ -27,6 +27,7 @@ const Aanbod = () => {
       );
 
     if (data) {
+      console.log(data);
       return (
         <>
           {data.websites.map(website => {
