@@ -1,5 +1,4 @@
 import React, { useReducer, createContext, useEffect } from "react";
-import app from "../api/firebase/index";
 
 const initialState = {
   user: null
@@ -32,20 +31,20 @@ const authReducer = (state, action) => {
 const AuthProvider = props => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  useEffect(() => {
-    if (localStorage.getItem("authUser")) {
-      const user = JSON.parse(localStorage.getItem("authUser"));
-      login(user);
-    } else {
-      app.auth().onAuthStateChanged(authUser => {
-        if (authUser) {
-          localStorage.setItem("authUser", JSON.stringify(authUser));
-        } else {
-          localStorage.removeItem("authUser");
-        }
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (localStorage.getItem("authUser")) {
+  //     const user = JSON.parse(localStorage.getItem("authUser"));
+  //     login(user);
+  //   } else {
+  //     app.auth().onAuthStateChanged(authUser => {
+  //       if (authUser) {
+  //         localStorage.setItem("authUser", JSON.stringify(authUser));
+  //       } else {
+  //         localStorage.removeItem("authUser");
+  //       }
+  //     });
+  //   }
+  // }, []);
 
   const login = userData => {
     dispatch({

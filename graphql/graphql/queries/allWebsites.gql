@@ -1,0 +1,10 @@
+query allWebsites {
+  websites {
+    url
+    targetAmount
+    monthlyRevenue
+    monthlyProfit
+    smallDescription
+    detailDescription
+  }
+}

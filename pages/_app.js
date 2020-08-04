@@ -9,8 +9,7 @@ import { AuthProvider } from "../context/auth";
 const fetch = require("node-fetch").default;
 
 const client = new ApolloClient({
-  uri:
-    "https://api-eu-central-1.graphcms.com/v2/ckcagy5ev012001ywfhtgchip/master",
+  uri: "https://cms-invest-platform.herokuapp.com/graphql",
   fetch,
   cache: new InMemoryCache()
 });

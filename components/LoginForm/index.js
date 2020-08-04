@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import useForm from "../../hooks/useForm";
-import { useLogin } from "../../api/firebase/hooks";
 import validateLogin from "../../utils/validateLogin";
+import { useMutation } from "@apollo/react-hooks";
+import { AuthContext } from "../../context/auth";
+import { useRouter } from "next/router";
+
+import LOGIN_USER from "../../graphql/graphql/mutations/login.gql";
 
 import InputField from "../InputField";
 import Button from "../Button";
 
 const Login = () => {
+  const router = useRouter();
+  const context = useContext(AuthContext);
   const { handleChange, handleSubmit, values, errors } = useForm(
     {
       email: "",
@@ -15,12 +21,24 @@ const Login = () => {
     submit,
     validateLogin
   );
+  const [loginUser, { data, loading }] = useMutation(LOGIN_USER, {
+    variables: {
+      identifier: values.email,
+      password: values.password
+    },
+    onCompleted(userData) {
+      context.login(userData.login.user);
+      router.push("/dashboard");
+    },
+    onError({ graphQLErrors }) {
+      console.log(graphQLErrors);
+    }
+  });
 
   function submit() {
-    loginUser(values.email, values.password);
+    loginUser();
   }
 
-  const { loginUser, error, isLoading } = useLogin();
   return (
     <div className="d-flex flex-column align-items-center">
       <h3>Inloggen</h3>
@@ -40,7 +58,7 @@ const Login = () => {
         error={errors.password}
         changeHandler={handleChange}
       />
-      <Button clickHandler={handleSubmit} isLoading={isLoading}>
+      <Button clickHandler={handleSubmit} isLoading={loading}>
         Inloggen
       </Button>
       {error && <span className="text--error mt-3">{error}</span>}
