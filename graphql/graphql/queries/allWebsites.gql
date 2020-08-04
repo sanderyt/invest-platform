@@ -1,18 +1,10 @@
 query allWebsites {
   websites {
-    id
     url
-    thumbnail {
-      url
-    }
-    shortDescription
     targetAmount
-    progressAmount
+    monthlyRevenue
     monthlyProfit
-    yearlyProfit
-    numberOfInvestors
-    description {
-      html
-    }
+    smallDescription
+    detailDescription
   }
 }

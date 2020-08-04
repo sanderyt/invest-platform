@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import useForm from "../../hooks/useForm";
 import validateLogin from "../../utils/validateLogin";
 import { useMutation } from "@apollo/react-hooks";
+import { AuthContext } from "../../context/auth";
+import { useRouter } from "next/router";
 
 import LOGIN_USER from "../../graphql/graphql/mutations/login.gql";
 
@@ -9,6 +11,8 @@ import InputField from "../InputField";
 import Button from "../Button";
 
 const Login = () => {
+  const router = useRouter();
+  const context = useContext(AuthContext);
   const { handleChange, handleSubmit, values, errors } = useForm(
     {
       email: "",
@@ -17,16 +21,17 @@ const Login = () => {
     submit,
     validateLogin
   );
-  const [loginUser, { data, loading, error }] = useMutation(LOGIN_USER, {
+  const [loginUser, { data, loading }] = useMutation(LOGIN_USER, {
     variables: {
       identifier: values.email,
       password: values.password
     },
-    update(_, result) {
-      console.log(result);
+    onCompleted(userData) {
+      context.login(userData.login.user);
+      router.push("/dashboard");
     },
     onError({ graphQLErrors }) {
-      console.log(graphQLErrors, "HI");
+      console.log(graphQLErrors);
     }
   });
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useQuery } from "@apollo/react-hooks";
-import ALL_WEBSITES from "../../api/graphql/queries/allWebsites.gql";
+import ALL_WEBSITES from "../../graphql/graphql/queries/allWebsites.gql";
 
 import WebsiteCard from "../WebsiteCard";
 import SkeletonThumb from "../SkeletonThumb";
@@ -30,13 +30,10 @@ const Latest = () => {
       return data.websites.map(website => {
         return (
           <WebsiteCard
-            id={website.id}
             url={website.url}
-            key={website.id}
-            thumbnail={website.thumbnail.url}
+            key={website.url}
             monthlyProfit={website.monthlyProfit}
-            numberOfInvestors={website.numberOfInvestors}
-            progressAmount={website.progressAmount}
+            progressAmount={5000}
             targetAmount={website.targetAmount}
           />
         );
