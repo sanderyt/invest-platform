@@ -1,7 +1,7 @@
 import React from "react";
 import useForm from "../../hooks/useForm";
 import validateLogin from "../../utils/validateLogin";
-import { useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/react-hooks";
 
 import LOGIN_USER from "../../graphql/graphql/mutations/login.gql";
 
@@ -18,12 +18,15 @@ const Login = () => {
     validateLogin
   );
   const [loginUser, { data, loading, error }] = useMutation(LOGIN_USER, {
-    variables: {},
+    variables: {
+      identifier: values.email,
+      password: values.password
+    },
     update(_, result) {
       console.log(result);
     },
     onError({ graphQLErrors }) {
-      console.log(graphQLErrors);
+      console.log(graphQLErrors, "HI");
     }
   });
 
