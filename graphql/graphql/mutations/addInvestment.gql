@@ -1,0 +1,16 @@
+mutation addInvestment($website: ID!, $amountInvested: Number!, $user: ID!) {
+  createInvestment(
+    input: {
+      data: {
+        website: $website
+        amountInvested: $amountInvested
+        created_by: $user
+      }
+    }
+  ) {
+    investment {
+      id
+      amountInvested
+    }
+  }
+}
