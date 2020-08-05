@@ -21,13 +21,14 @@ const Login = () => {
     submit,
     validateLogin
   );
-  const [loginUser, { data, loading }] = useMutation(LOGIN_USER, {
+  const [loginUser, { data, loading, error }] = useMutation(LOGIN_USER, {
     variables: {
       identifier: values.email,
       password: values.password
     },
     onCompleted(userData) {
-      context.login(userData.login.user);
+      console.log(userData);
+      context.login(userData.login);
       router.push("/dashboard");
     },
     onError({ graphQLErrors }) {
@@ -61,7 +62,7 @@ const Login = () => {
       <Button clickHandler={handleSubmit} isLoading={loading}>
         Inloggen
       </Button>
-      {/* {error && <span className="text--error mt-3">{error}</span>} */}
+      {error && <span className="text--error mt-3">{error.name}</span>}
     </div>
   );
 };

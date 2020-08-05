@@ -1,11 +1,10 @@
 import React from "react";
 
 import useForm from "../hooks/useForm";
-import { useRegister } from "../api/firebase/hooks";
 import { useMutation } from "@apollo/react-hooks";
 import { useRouter } from "next/router";
 import validateRegister from "../utils/validateRegister";
-import ADD_ACCOUNT from "../api/graphql/mutations/addAccount.gql";
+import CREATE_ACCOUNT from "../graphql/graphql/mutations/createUser.gql";
 
 import Layout from "../components/Layout";
 import Subheader from "../components/Subheader";
@@ -88,10 +87,10 @@ const Registreren = () => {
           error={errors.password}
           changeHandler={handleChange}
         />
-        <Button clickHandler={handleSubmit} isLoading={isLoading}>
+        <Button clickHandler={handleSubmit}>
           Registeren
         </Button>
-        {error && <span className="text--error mt-3">{error}</span>}
+        {/* {error && <span className="text--error mt-3">{error}</span>} */}
       </Box>
     </Layout>
   );

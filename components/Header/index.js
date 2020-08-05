@@ -52,11 +52,11 @@ const Header = () => {
             <div className="col-3 d-none d-md-flex align-items-center justify-content-end">
               {context.user ? (
                 <>
-                  <span>Welcome back, {context.user.email}</span>
+                  <span>Welcome back, {context.user.user.username}</span>
                   <Link href="/dashboard">
                     <a>Dashboard</a>
                   </Link>
-                  <button className="btn btn--primary" onClick={logout}>
+                  <button className="btn btn--primary" onClick={context.logout}>
                     Logout
                   </button>
                 </>

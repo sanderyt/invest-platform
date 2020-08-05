@@ -31,22 +31,14 @@ const authReducer = (state, action) => {
 const AuthProvider = props => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("authUser")) {
-  //     const user = JSON.parse(localStorage.getItem("authUser"));
-  //     login(user);
-  //   } else {
-  //     app.auth().onAuthStateChanged(authUser => {
-  //       if (authUser) {
-  //         localStorage.setItem("authUser", JSON.stringify(authUser));
-  //       } else {
-  //         localStorage.removeItem("authUser");
-  //       }
-  //     });
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      login(JSON.parse(localStorage.getItem("user")));
+    }
+  }, []);
 
   const login = userData => {
+    localStorage.setItem("user", JSON.stringify(userData));
     dispatch({
       type: "LOGIN",
       payload: userData
@@ -54,8 +46,8 @@ const AuthProvider = props => {
   };
 
   const logout = () => {
+    localStorage.removeItem("user");
     dispatch({ type: "LOGOUT" });
-    localStorage.removeItem("authUser");
   };
 
   return (

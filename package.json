@@ -17,6 +17,7 @@
     "dotenv": "^8.2.0",
     "firebase": "^7.15.3",
     "graphql": "^15.3.0",
+    "jwt-decode": "^2.2.0",
     "next": "9.3.5",
     "next-fonts": "^1.2.0",
     "next-plugin-graphql": "0.0.2",
