@@ -21,9 +21,9 @@ const InvestModal = ({ progressAmount, numberOfInvestors, websiteId }) => {
 
   const [addInvestment, { error, loading }] = useMutation(ADD_INVESTMENT, {
     variables: {
-      id: websiteId,
-      investment: progressAmount + parseInt(values.investedAmount),
-      investors: numberOfInvestors + 1
+      website: websiteId,
+      amountInvested: values.investedAmount,
+      user: user.user.id
     },
     update(_, result) {
       setAddedInvestment(true);
@@ -38,6 +38,7 @@ const InvestModal = ({ progressAmount, numberOfInvestors, websiteId }) => {
   });
 
   function submit() {
+    console.log(websiteId, values.investedAmount, user.user.id);
     addInvestment();
   }
 

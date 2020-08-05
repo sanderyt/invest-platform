@@ -1,11 +1,7 @@
-mutation addInvestment($website: ID!, $amountInvested: Number!, $user: ID!) {
+mutation addInvestment($website: ID!, $amountInvested: Long!, $user: ID!) {
   createInvestment(
     input: {
-      data: {
-        website: $website
-        amountInvested: $amountInvested
-        user: $user
-      }
+      data: { website: $website, amountInvested: $amountInvested, user: $user }
     }
   ) {
     investment {

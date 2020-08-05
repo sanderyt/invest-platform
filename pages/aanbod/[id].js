@@ -56,7 +56,8 @@ const Detail = () => {
     monthlyRevenue,
     detailDescription,
     targetAmount,
-    investments
+    investments,
+    createdAt
   } = data.website;
 
   const calculateProgress = () => {
@@ -68,7 +69,7 @@ const Detail = () => {
   return (
     <Layout>
       <Subheader subtitle={url} description={smallDescription} />
-      <DetailBar />
+      <DetailBar createdAt={createdAt} />
       <div className="container detail">
         <div className="row detail__info d-flex pb-5">
           <div className="col-md-6">
