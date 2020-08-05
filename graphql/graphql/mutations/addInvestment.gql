@@ -4,7 +4,7 @@ mutation addInvestment($website: ID!, $amountInvested: Number!, $user: ID!) {
       data: {
         website: $website
         amountInvested: $amountInvested
-        created_by: $user
+        user: $user
       }
     }
   ) {
