@@ -2,11 +2,11 @@ table {
   width: 100%;
   border-radius: 5px;
   box-shadow: $box-shadow-two;
-  margin-top: 25px;
+  margin: 30px;
   border-spacing: 0;
 
   thead {
-    background-color: #f7f7f7;
+    background-color: #c5daed;
     text-align: left;
 
     th {
@@ -18,7 +18,13 @@ table {
   tbody {
     tr {
       height: 40px;
-      border-bottom: 1px solid red;
+      cursor: pointer;
+      transition: 250ms;
+      color: #373737;
+
+      &:hover {
+        background-color: #f7f7f7;
+      }
 
       td {
         padding: 15px;

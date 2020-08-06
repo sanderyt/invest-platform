@@ -25,7 +25,7 @@ const Header = () => {
                 </a>
               </Link>
             </div>
-            <div className="col-8 d-none d-md-flex align-items-center justify-content-end">
+            <div className="col-7 d-none d-md-flex align-items-center justify-content-end">
               <nav>
                 <ul className="d-flex">
                   <li>
@@ -49,7 +49,7 @@ const Header = () => {
                 </ul>
               </nav>
             </div>
-            <div className="col-1 d-none d-md-flex align-items-center justify-content-end">
+            <div className="col-2 d-none d-md-flex align-items-center justify-content-end">
               {context.user ? (
                 <>
                   <Link href="/dashboard">
