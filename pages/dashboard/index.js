@@ -3,6 +3,7 @@ import { ProtectedPage } from "../../components/ProtectedPage";
 import { AuthContext } from "../../context/auth";
 import GET_ALL_INVESTMENTS_BY_USER from "../../graphql/graphql/queries/getAllInvestmentsByUser.gql";
 import { useQuery } from "@apollo/react-hooks";
+import refactorAmount from "../../utils/refactorAmount";
 
 import Layout from "../../components/Layout";
 import DashboardLayout from "../../components/DashboardLayout";
@@ -22,9 +23,17 @@ const Dashboard = () => {
   });
 
   const InvestmentsContent = () => {
-    if (loading) return <SkeletonLine />;
+    if (loading)
+      return (
+        <>
+          <SkeletonLine />
+          <SkeletonLine />
+          <SkeletonLine />
+        </>
+      );
 
     if (data) {
+      console.log(data);
       return (
         <Table>
           <TableHead>
@@ -32,19 +41,24 @@ const Dashboard = () => {
               <TableHeading>Website</TableHeading>
               <TableHeading>Geinvesteerd</TableHeading>
               <TableHeading>Datum</TableHeading>
+              <TableHeading></TableHeading>
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow>
-              <TableCell>luieraanbiedingen.net</TableCell>
-              <TableCell>5000</TableCell>
-              <TableCell>23 april 2020</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>luieraanbiedingen.net</TableCell>
-              <TableCell>5000</TableCell>
-              <TableCell>23 april 2020</TableCell>
-            </TableRow>
+            {data.investments.map(investment => {
+              return (
+                <TableRow>
+                  <TableCell>{investment.website.url}</TableCell>
+                  <TableCell>
+                    {refactorAmount(`€${investment.amountInvested}`)}
+                  </TableCell>
+                  <TableCell>{investment.createdAt}</TableCell>
+                  <TableCell>
+                    <i class="fas fa-ellipsis-h"></i>
+                  </TableCell>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       );

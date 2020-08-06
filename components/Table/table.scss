@@ -1,15 +1,17 @@
 table {
   width: 100%;
   border-radius: 5px;
-  box-shadow: $box-shadow;
+  box-shadow: $box-shadow-two;
   margin-top: 25px;
+  border-spacing: 0;
 
   thead {
-    background-color: $grey100;
+    background-color: #f7f7f7;
     text-align: left;
 
     th {
-      height: 35px;
+      padding: 15px;
+      font-size: 1.1rem;
     }
   }
 
@@ -17,6 +19,16 @@ table {
     tr {
       height: 40px;
       border-bottom: 1px solid red;
+
+      td {
+        padding: 15px;
+        border-bottom: 1.2px solid $grey100;
+      }
     }
   }
+}
+
+.fa-ellipsis-h {
+  color: $grey200;
+  cursor: pointer;
 }
