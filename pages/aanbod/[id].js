@@ -29,6 +29,22 @@ const Detail = () => {
     setInvestModalClicked(!investModalClicked);
   };
 
+  const calculateProgress = () => {
+    let total = 0;
+    investments.map(investment => (total += investment.amountInvested));
+    return total;
+  };
+
+  //Refactor this function, can be smaller
+  const amountOfInvestors = () => {
+    let investors = [];
+    investments.map(investment => {
+      if (!investors.includes(investment.user.id))
+        investors.push(investment.user.id);
+    });
+    return investors.length;
+  };
+
   if (loading)
     return (
       <Layout>
@@ -59,12 +75,6 @@ const Detail = () => {
     investments,
     createdAt
   } = data.website;
-
-  const calculateProgress = () => {
-    let total = 0;
-    investments.map(investment => (total += investment.amountInvested));
-    return total;
-  };
 
   return (
     <Layout>
@@ -106,7 +116,7 @@ const Detail = () => {
               <ProgressBar
                 targetAmount={targetAmount}
                 progressAmount={calculateProgress()}
-                numberOfInvestors={3}
+                numberOfInvestors={amountOfInvestors()}
               />
               <button
                 className="btn btn--cta btn--lg"
@@ -133,7 +143,7 @@ const Detail = () => {
       >
         <InvestModal
           progressAmount={calculateProgress()}
-          numberOfInvestors={3}
+          numberOfInvestors={amountOfInvestors()}
           websiteId={router.query.id}
         />
       </Modal>

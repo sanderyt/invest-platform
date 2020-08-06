@@ -11,6 +11,10 @@ query detailWebsite($id: ID!) {
     investments {
       id
       amountInvested
+      user {
+        username
+        id
+      }
     }
   }
 }
