@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: $box-shadow;
+  margin-top: 25px;
+
+  thead {
+    background-color: $grey100;
+    text-align: left;
+
+    th {
+      height: 35px;
+    }
+  }
+
+  tbody {
+    tr {
+      height: 40px;
+      border-bottom: 1px solid red;
+    }
+  }
+}

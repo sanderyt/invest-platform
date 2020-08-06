@@ -9,6 +9,11 @@ import DashboardLayout from "../../components/DashboardLayout";
 import DashboardCard from "../../components/DashboardCard";
 import SkeletonLine from "../../components/SkeletonLine";
 import Table from "../../components/Table";
+import TableHead from "../../components/Table/TableHead";
+import TableHeading from "../../components/Table/TableHeading";
+import TableBody from "../../components/Table/TableBody";
+import TableRow from "../../components/Table/TableRow";
+import TableCell from "../../components/Table/TableCell";
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
@@ -20,7 +25,29 @@ const Dashboard = () => {
     if (loading) return <SkeletonLine />;
 
     if (data) {
-      return <Table></Table>;
+      return (
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableHeading>Website</TableHeading>
+              <TableHeading>Geinvesteerd</TableHeading>
+              <TableHeading>Datum</TableHeading>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>luieraanbiedingen.net</TableCell>
+              <TableCell>5000</TableCell>
+              <TableCell>23 april 2020</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>luieraanbiedingen.net</TableCell>
+              <TableCell>5000</TableCell>
+              <TableCell>23 april 2020</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      );
     }
   };
 
