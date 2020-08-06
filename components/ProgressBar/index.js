@@ -25,7 +25,7 @@ const ProgressBar = ({ progressAmount, targetAmount, numberOfInvestors }) => {
         <span className="text--grey400">
           {progressRatio(progressAmount, targetAmount)}% van het doelbedrag
         </span>
-        <span className="text--grey400">nog 34 dagen</span>
+        <span className="text--grey400"></span>
       </div>
     </div>
   );
