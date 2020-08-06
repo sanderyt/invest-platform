@@ -1,0 +1,30 @@
+mutation registerUser(
+  $username: String!
+  $email: String!
+  $password: String!
+  $firstName: String!
+  $lastName: String!
+  $residence: String!
+) {
+  createUser(
+    input: {
+      data: {
+        username: $username
+        email: $email
+        password: $password
+        firstName: $firstName
+        lastName: $lastName
+        residence: $residence
+      }
+    }
+  ) {
+    user {
+      id
+      username
+      email
+      firstName
+      lastName
+      residence
+    }
+  }
+}

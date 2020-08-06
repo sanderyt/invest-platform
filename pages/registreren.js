@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import useForm from "../hooks/useForm";
 import { useMutation } from "@apollo/react-hooks";
 import { useRouter } from "next/router";
+import { AuthContext } from "../context/auth";
 import validateRegister from "../utils/validateRegister";
-import CREATE_ACCOUNT from "../graphql/graphql/mutations/createUser.gql";
+import REGISTER_USER from "../graphql/graphql/mutations/registerUser.gql";
 
 import Layout from "../components/Layout";
 import Subheader from "../components/Subheader";
@@ -14,6 +15,7 @@ import Button from "../components/Button";
 
 const Registreren = () => {
   const router = useRouter();
+  const context = useContext(AuthContext);
   const { handleChange, handleSubmit, values, errors } = useForm(
     {
       firstName: "",
@@ -27,8 +29,26 @@ const Registreren = () => {
     validateRegister
   );
 
+  const [registerUser, { error, loading }] = useMutation(REGISTER_USER, {
+    variables: {
+      username: values.email,
+      email: values.email,
+      password: values.password,
+      firstName: values.firstName,
+      lastName: values.lastName,
+      residence: values.residence
+    },
+    onCompleted(data) {
+      context.login(data.createUser);
+      router.push("/dashboard");
+    },
+    onError({ graphQLErrors }) {
+      console.log(graphQLErrors);
+    }
+  });
+
   function submit() {
-    router.push("/dashboard");
+    registerUser();
   }
 
   return (
@@ -87,10 +107,10 @@ const Registreren = () => {
           error={errors.password}
           changeHandler={handleChange}
         />
-        <Button clickHandler={handleSubmit}>
+        <Button clickHandler={handleSubmit} isLoading={loading}>
           Registeren
         </Button>
-        {/* {error && <span className="text--error mt-3">{error}</span>} */}
+        {error && <span className="text--error mt-3">{error.message}</span>}
       </Box>
     </Layout>
   );
