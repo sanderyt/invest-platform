@@ -14,5 +14,6 @@
 
   &:hover {
     box-shadow: $box-shadow-darker;
+    transform: translateY(-1%);
   }
 }

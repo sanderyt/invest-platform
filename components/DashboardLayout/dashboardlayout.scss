@@ -4,6 +4,10 @@
   &__sidebar {
     background-color: $grey100;
     height: 100vh;
+
+    @include device("mobile") {
+      height: auto;
+    }
   }
 
   &__content {
@@ -14,6 +18,10 @@
   &__navigation {
     list-style: none;
     width: 100%;
+
+    @include device("mobile") {
+      display: flex;
+    }
 
     li {
       display: flex;

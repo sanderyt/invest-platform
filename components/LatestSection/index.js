@@ -30,8 +30,9 @@ const Latest = () => {
       return data.websites.map(website => {
         return (
           <WebsiteCard
+            id={website.id}
             url={website.url}
-            key={website.url}
+            key={website.id}
             monthlyProfit={website.monthlyProfit}
             progressAmount={5000}
             targetAmount={website.targetAmount}

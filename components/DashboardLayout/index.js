@@ -17,7 +17,6 @@ const DashboardLayout = ({ children }) => {
               label="Instellingen"
               url="/dashboard/instellingen"
             />
-            <DashboardMenuItem label="Contact" url="/dashboard/contact" />
           </ul>
         </div>
         <div className="dashboard__content col-md-10 d-flex flex-column align-items-center">
