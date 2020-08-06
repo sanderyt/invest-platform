@@ -62,7 +62,9 @@ const Header = () => {
                       <i class="fas fa-cog"></i>
                     </a>
                   </Link>
-                  <i class="fas fa-sign-out-alt" onClick={context.logout}></i>
+                  <span onClick={context.logout}>
+                    <i class="fas fa-sign-out-alt"></i>
+                  </span>
                 </>
               ) : (
                 <>
