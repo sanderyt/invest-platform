@@ -25,7 +25,7 @@ const Header = () => {
                 </a>
               </Link>
             </div>
-            <div className="col-6 d-none d-md-flex align-items-center justify-content-end">
+            <div className="col-8 d-none d-md-flex align-items-center justify-content-end">
               <nav>
                 <ul className="d-flex">
                   <li>
@@ -49,16 +49,20 @@ const Header = () => {
                 </ul>
               </nav>
             </div>
-            <div className="col-3 d-none d-md-flex align-items-center justify-content-end">
+            <div className="col-1 d-none d-md-flex align-items-center justify-content-end">
               {context.user ? (
                 <>
-                  <span>Welcome back, {context.user.user.username}</span>
                   <Link href="/dashboard">
-                    <a>Dashboard</a>
+                    <a>
+                      <i class="fas fa-user-alt"></i>
+                    </a>
                   </Link>
-                  <button className="btn btn--primary" onClick={context.logout}>
-                    Logout
-                  </button>
+                  <Link href="/dashboard">
+                    <a>
+                      <i class="fas fa-cog"></i>
+                    </a>
+                  </Link>
+                  <i class="fas fa-sign-out-alt" onClick={context.logout}></i>
                 </>
               ) : (
                 <>
