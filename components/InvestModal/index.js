@@ -55,6 +55,9 @@ const InvestModal = ({ progressAmount, numberOfInvestors, websiteId }) => {
               Wanneer het doelbedrag is opgehaald, zult u een mail hierover
               ontvangen.
             </p>
+            <Button clickHandler={() => setAddedInvestment(false)}>
+              Nog een investering doen
+            </Button>
           </>
         ) : (
           <>
