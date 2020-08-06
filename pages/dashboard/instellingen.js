@@ -7,7 +7,7 @@ const Instellingen = () => {
   return (
     <Layout>
       <DashboardLayout>
-        <h1>Hier kunnen gebruikers hun instellingen/gegvens wijzigen</h1>
+        <h1>Instellingen</h1>
       </DashboardLayout>
     </Layout>
   );

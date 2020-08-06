@@ -12,7 +12,7 @@ const DashboardLayout = ({ children }) => {
               label="Investeringen"
               url="/dashboard/investeringen"
             />
-            <DashboardMenuItem label="Facturen" url="/dashboard/facturen" />
+            <DashboardMenuItem label="Inkomsten" url="/dashboard/facturen" />
             <DashboardMenuItem
               label="Instellingen"
               url="/dashboard/instellingen"

@@ -8,19 +8,20 @@ import TableHeading from "../../components/Table/TableHeading";
 import TableBody from "../../components/Table/TableBody";
 import TableRow from "../../components/Table/TableRow";
 import TableCell from "../../components/Table/TableCell";
+import StatusPill from "../../components/StatusPill";
 
 const Facturen = () => {
   return (
     <Layout>
       <DashboardLayout>
-        <h1>Mijn facturen</h1>
+        <h1>Mijn inkomsten</h1>
         <Table>
           <TableHead>
             <TableRow>
               <TableHeading>Website</TableHeading>
               <TableHeading>Bedrag</TableHeading>
               <TableHeading>Datum</TableHeading>
-              <TableHeading>PDF</TableHeading>
+              <TableHeading>Download PDF</TableHeading>
               <TableHeading>Status</TableHeading>
             </TableRow>
           </TableHead>
@@ -32,7 +33,9 @@ const Facturen = () => {
               <TableCell>
                 <i class="fas fa-file-download"></i>
               </TableCell>
-              <TableCell>Uitbetaald</TableCell>
+              <TableCell>
+                <StatusPill>Uitbetaald</StatusPill>
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>drone123.nl</TableCell>
@@ -41,7 +44,9 @@ const Facturen = () => {
               <TableCell>
                 <i class="fas fa-file-download"></i>
               </TableCell>
-              <TableCell>Uitbetaald</TableCell>
+              <TableCell>
+                <StatusPill>Uitbetaald</StatusPill>
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>drone123.nl</TableCell>
@@ -50,7 +55,9 @@ const Facturen = () => {
               <TableCell>
                 <i class="fas fa-file-download"></i>
               </TableCell>
-              <TableCell>Uitbetaald</TableCell>
+              <TableCell>
+                <StatusPill>Uitbetaald</StatusPill>
+              </TableCell>
             </TableRow>
           </TableBody>
         </Table>
