@@ -1,0 +1,10 @@
+query getAllInvestmentsByUser($uid: ID!) {
+  investments(where: { user: $uid }) {
+    id
+    amountInvested
+    createdAt
+    website {
+      url
+    }
+  }
+}
