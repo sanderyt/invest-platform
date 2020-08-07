@@ -4,14 +4,29 @@ table {
   box-shadow: $box-shadow-two;
   margin: 30px;
   border-spacing: 0;
+  table-layout: fixed;
 
   thead {
-    background-color: #c5daed;
+    background: rgb(38, 96, 127);
+    background: linear-gradient(
+      90deg,
+      rgba(38, 96, 127, 1) 0%,
+      rgba(71, 173, 228, 1) 100%
+    );
+    color: white;
     text-align: left;
+    border-top-left-radius: $border-radius-one;
+    border-top-right-radius: $border-radius-one;
 
     th {
       padding: 15px;
       font-size: 1.1rem;
+      &:first-child {
+        border-top-left-radius: $border-radius-one;
+      }
+      &:last-child {
+        border-top-right-radius: $border-radius-one;
+      }
     }
   }
 
