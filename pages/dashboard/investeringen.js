@@ -3,6 +3,7 @@ import { AuthContext } from "../../context/auth";
 import GET_ALL_INVESTMENTS_BY_USER from "../../graphql/graphql/queries/getAllInvestmentsByUser.gql";
 import { useQuery } from "@apollo/react-hooks";
 import refactorAmount from "../../utils/refactorAmount";
+import moment from "moment";
 
 import Layout from "../../components/Layout";
 import DashboardLayout from "../../components/DashboardLayout";

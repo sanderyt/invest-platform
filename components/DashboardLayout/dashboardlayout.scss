@@ -13,6 +13,7 @@
   &__content {
     background-color: white;
     padding-top: 20px;
+    animation: fadeIn 500ms forwards;
 
     @include device("tablet") {
       padding-top: 90px;
