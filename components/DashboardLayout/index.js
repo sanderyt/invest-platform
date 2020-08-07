@@ -7,16 +7,22 @@ const DashboardLayout = ({ children }) => {
       <div className="row no-gutters dashboard">
         <div className="dashboard__sidebar col-md-2 d-flex justify-content-center">
           <ul className="dashboard__navigation">
-            <DashboardMenuItem label="Overzicht" url="/dashboard" />
-            <DashboardMenuItem
-              label="Investeringen"
-              url="/dashboard/investeringen"
-            />
-            <DashboardMenuItem label="Inkomsten" url="/dashboard/facturen" />
-            <DashboardMenuItem
-              label="Instellingen"
-              url="/dashboard/instellingen"
-            />
+            <DashboardMenuItem url="/dashboard">
+              <i class="fas fa-bars"></i>
+              Overzicht
+            </DashboardMenuItem>
+            <DashboardMenuItem url="/dashboard/investeringen">
+              <i class="fas fa-money-bill-wave"></i>
+              Investeringen
+            </DashboardMenuItem>
+            <DashboardMenuItem url="/dashboard/facturen">
+              <i class="fas fa-coins"></i>
+              Inkomsten
+            </DashboardMenuItem>
+            <DashboardMenuItem url="/dashboard/instellingen">
+              <i class="fas fa-cog"></i>
+              Instellingen
+            </DashboardMenuItem>
           </ul>
         </div>
         <div className="dashboard__content col-md-10 d-flex flex-column align-items-center">
@@ -31,11 +37,11 @@ const DashboardLayout = ({ children }) => {
   );
 };
 
-const DashboardMenuItem = ({ label, url }) => {
+const DashboardMenuItem = ({ children, url }) => {
   return (
     <Link href={url}>
       <a>
-        <li>{label}</li>
+        <li>{children}</li>
       </a>
     </Link>
   );

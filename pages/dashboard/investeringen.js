@@ -37,20 +37,21 @@ const Investeringen = () => {
           </TableHead>
           <TableBody>
             {loading && <SkeletonLine />}
-            {data.investments.map(investment => {
-              return (
-                <TableRow>
-                  <TableCell>{investment.website.url}</TableCell>
-                  <TableCell>
-                    {refactorAmount(`€${investment.amountInvested}`)}
-                  </TableCell>
-                  <TableCell>{investment.createdAt}</TableCell>
-                  <TableCell>
-                    <StatusPill type="success">Bezig met overname</StatusPill>
-                  </TableCell>
-                </TableRow>
-              );
-            })}
+            {data &&
+              data.investments.map(investment => {
+                return (
+                  <TableRow>
+                    <TableCell>{investment.website.url}</TableCell>
+                    <TableCell>
+                      {refactorAmount(`€${investment.amountInvested}`)}
+                    </TableCell>
+                    <TableCell>{investment.createdAt}</TableCell>
+                    <TableCell>
+                      <StatusPill type="success">Bezig met overname</StatusPill>
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
           </TableBody>
         </Table>
       </DashboardLayout>
