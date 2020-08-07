@@ -21,8 +21,8 @@ const Facturen = () => {
               <TableHeading>Website</TableHeading>
               <TableHeading>Bedrag</TableHeading>
               <TableHeading>Datum</TableHeading>
-              <TableHeading>Download PDF</TableHeading>
               <TableHeading>Status</TableHeading>
+              <TableHeading>Download</TableHeading>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -31,10 +31,10 @@ const Facturen = () => {
               <TableCell>€475,-</TableCell>
               <TableCell>23 april 2020</TableCell>
               <TableCell>
-                <i class="fas fa-file-download"></i>
+                <StatusPill type="pending">Betaling verwerken</StatusPill>
               </TableCell>
               <TableCell>
-                <StatusPill>Uitbetaald</StatusPill>
+                <i class="fas fa-file-download"></i>
               </TableCell>
             </TableRow>
             <TableRow>
@@ -42,10 +42,10 @@ const Facturen = () => {
               <TableCell>€575,-</TableCell>
               <TableCell>21 maart 2020</TableCell>
               <TableCell>
-                <i class="fas fa-file-download"></i>
+                <StatusPill type="success">Uitbetaald</StatusPill>
               </TableCell>
               <TableCell>
-                <StatusPill>Uitbetaald</StatusPill>
+                <i class="fas fa-file-download"></i>
               </TableCell>
             </TableRow>
             <TableRow>
@@ -53,10 +53,10 @@ const Facturen = () => {
               <TableCell>€250,-</TableCell>
               <TableCell>22 februari 2020</TableCell>
               <TableCell>
-                <i class="fas fa-file-download"></i>
+                <StatusPill type="success">Uitbetaald</StatusPill>
               </TableCell>
               <TableCell>
-                <StatusPill>Uitbetaald</StatusPill>
+                <i class="fas fa-file-download"></i>
               </TableCell>
             </TableRow>
           </TableBody>

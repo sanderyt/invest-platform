@@ -45,7 +45,7 @@ const Investeringen = () => {
                   </TableCell>
                   <TableCell>{investment.createdAt}</TableCell>
                   <TableCell>
-                    <StatusPill>Bezig met overname</StatusPill>
+                    <StatusPill type="success">Bezig met overname</StatusPill>
                   </TableCell>
                 </TableRow>
               );
