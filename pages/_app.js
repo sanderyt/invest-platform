@@ -5,6 +5,7 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { AuthProvider } from "../context/auth";
+import cookie from "cookie";
 
 const fetch = require("node-fetch").default;
 
@@ -14,14 +15,22 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps, props }) => {
   return (
     <ApolloProvider client={client}>
-      <AuthProvider>
+      <AuthProvider {...props}>
         <Component {...pageProps} />
       </AuthProvider>
     </ApolloProvider>
   );
-}
+};
 
+// MyApp.getInitialProps = async ctx => {
+//   const cookies = cookie.parse(ctx.ctx.req.headers.cookie);
+//   return {
+//     props: {
+//       user: cookies
+//     }
+//   };
+// };
 export default MyApp;

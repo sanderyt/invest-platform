@@ -1,7 +1,12 @@
 import React, { useReducer, createContext, useEffect } from "react";
+import Cookie from "js-cookie";
 
 const initialState = {
-  user: null
+  user: {
+    user: {
+      id: "5f297eaba80b8800175e02aa"
+    }
+  }
 };
 
 const AuthContext = createContext({
@@ -31,14 +36,8 @@ const authReducer = (state, action) => {
 const AuthProvider = props => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  useEffect(() => {
-    if (localStorage.getItem("user")) {
-      login(JSON.parse(localStorage.getItem("user")));
-    }
-  }, []);
-
   const login = userData => {
-    localStorage.setItem("user", JSON.stringify(userData));
+    Cookie.set("user", JSON.stringify(userData));
     dispatch({
       type: "LOGIN",
       payload: userData
@@ -46,7 +45,7 @@ const AuthProvider = props => {
   };
 
   const logout = () => {
-    localStorage.removeItem("user");
+    Cookie.remove("user");
     dispatch({ type: "LOGOUT" });
   };
 
