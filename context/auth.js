@@ -1,13 +1,14 @@
-import React, { useReducer, createContext, useEffect } from "react";
-import Cookie from "js-cookie";
+import React, { useReducer, createContext } from "react";
+import Cookies from "js-cookie";
 
 const initialState = {
-  user: {
-    user: {
-      id: "5f297eaba80b8800175e02aa"
-    }
-  }
+  user: null
 };
+
+if (Cookies.get("user")) {
+  const user = JSON.parse(Cookies.get("user"));
+  initialState.user = user;
+}
 
 const AuthContext = createContext({
   user: null,

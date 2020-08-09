@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../../context/auth";
 import GET_ALL_INVESTMENTS_BY_USER from "../../graphql/graphql/queries/getAllInvestmentsByUser.gql";
 import { useQuery } from "@apollo/react-hooks";
@@ -17,9 +17,9 @@ import TableCell from "../../components/Table/TableCell";
 import StatusPill from "../../components/StatusPill";
 
 const Investeringen = () => {
-  const { user } = useContext(AuthContext);
+  const context = useContext(AuthContext);
   const { loading, error, data } = useQuery(GET_ALL_INVESTMENTS_BY_USER, {
-    variables: { uid: user.user.id }
+    variables: { uid: context.user.user.id }
   });
 
   return (
