@@ -1,14 +1,9 @@
-import React, { useReducer, createContext } from "react";
-import Cookies from "js-cookie";
+import React, { useReducer, createContext, useEffect } from "react";
+import Cookie from "js-cookie";
 
 const initialState = {
   user: null
 };
-
-if (Cookies.get("user")) {
-  const user = JSON.parse(Cookies.get("user"));
-  initialState.user = user;
-}
 
 const AuthContext = createContext({
   user: null,
@@ -36,6 +31,12 @@ const authReducer = (state, action) => {
 
 const AuthProvider = props => {
   const [state, dispatch] = useReducer(authReducer, initialState);
+
+  useEffect(() => {
+    if (Cookie.get("user")) {
+      login(JSON.parse(Cookie.get("user")));
+    }
+  }, [initialState]);
 
   const login = userData => {
     Cookie.set("user", JSON.stringify(userData));

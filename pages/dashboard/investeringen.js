@@ -16,7 +16,7 @@ import TableRow from "../../components/Table/TableRow";
 import TableCell from "../../components/Table/TableCell";
 import StatusPill from "../../components/StatusPill";
 
-const Investeringen = () => {
+const Investeringen = props => {
   const context = useContext(AuthContext);
   const { loading, error, data } = useQuery(GET_ALL_INVESTMENTS_BY_USER, {
     variables: { uid: context.user.user.id }
@@ -58,5 +58,11 @@ const Investeringen = () => {
     </Layout>
   );
 };
+
+// This gets called on every request
+export async function getServerSideProps() {
+  // Pass data to the page via props
+  return { props: { user: { user: { id: "5f297eaba80b8800175e02aa" } } } };
+}
 
 export default Investeringen;
