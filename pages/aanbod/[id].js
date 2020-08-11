@@ -4,6 +4,7 @@ import { AuthContext } from "../../context/auth";
 import { useQuery } from "@apollo/react-hooks";
 import GET_DETAIL_WEBSITE from "../../graphql/graphql/queries/detailWebsite.gql";
 import refactorAmount from "../../utils/refactorAmount";
+import { calculateProgress, amountOfInvestors } from "../../utils/functions";
 
 import Layout from "../../components/Layout";
 import Subheader from "../../components/Subheader";
@@ -27,22 +28,6 @@ const Detail = () => {
 
   const investModalHandler = () => {
     setInvestModalClicked(!investModalClicked);
-  };
-
-  const calculateProgress = () => {
-    let total = 0;
-    investments.map(investment => (total += investment.amountInvested));
-    return total;
-  };
-
-  //Refactor this function, can be smaller
-  const amountOfInvestors = () => {
-    let investors = [];
-    // investments.map(investment => {
-    //   if (!investors.includes(investment.user.id))
-    //     investors.push(investment.user.id);
-    // });
-    return investors.length;
   };
 
   if (loading)
@@ -117,8 +102,8 @@ const Detail = () => {
             <InvestBox targetAmount={refactorAmount(targetAmount)}>
               <ProgressBar
                 targetAmount={targetAmount}
-                progressAmount={calculateProgress()}
-                numberOfInvestors={amountOfInvestors()}
+                progressAmount={calculateProgress(data.investments)}
+                numberOfInvestors={amountOfInvestors(data.investments)}
               />
               <button
                 className="btn btn--cta btn--lg"
@@ -144,8 +129,8 @@ const Detail = () => {
         clickHandler={investModalHandler}
       >
         <InvestModal
-          progressAmount={calculateProgress()}
-          numberOfInvestors={amountOfInvestors()}
+          progressAmount={calculateProgress(data.investments)}
+          numberOfInvestors={amountOfInvestors(data.investments)}
           websiteId={router.query.id}
         />
       </Modal>

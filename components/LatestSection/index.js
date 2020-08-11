@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { useQuery } from "@apollo/react-hooks";
 import ALL_WEBSITES from "../../graphql/graphql/queries/allWebsites.gql";
+import { calculateProgress, amountOfInvestors } from "../../utils/functions";
 
 import WebsiteCard from "../WebsiteCard";
 import SkeletonThumb from "../SkeletonThumb";
@@ -26,19 +27,22 @@ const Latest = () => {
       );
 
     if (data)
-      return data.websites.map(website => {
-        return (
-          <WebsiteCard
-            id={website.id}
-            url={website.url}
-            key={website.id}
-            monthlyProfit={website.monthlyProfit}
-            progressAmount={5000}
-            targetAmount={website.targetAmount}
-            thumbnail={`https://cms-invest-platform.herokuapp.com${website.thumbnail.url}`}
-          />
-        );
-      });
+      return data.websites.map(
+        ({ id, url, monthlyProfit, investments, targetAmount, thumbnail }) => {
+          return (
+            <WebsiteCard
+              id={id}
+              url={url}
+              key={id}
+              monthlyProfit={monthlyProfit}
+              progressAmount={calculateProgress(investments)}
+              targetAmount={targetAmount}
+              numberOfInvestors={amountOfInvestors(investments)}
+              thumbnail={`https://cms-invest-platform.herokuapp.com${thumbnail.url}`}
+            />
+          );
+        }
+      );
 
     if (error) {
       return <h3 className="m-2 text--error">{error.message}</h3>;

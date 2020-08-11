@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import refactorAmount from "../../utils/refactorAmount";
 
 import ProgressBar from "../ProgressBar";
 
@@ -21,11 +22,13 @@ const WebsiteCard = ({
             <h3 className="text--primary p-2">{url}</h3>
             <div className="d-flex p-2 justify-content-between">
               <h3>Doel</h3>
-              <h3 className="text--primary">€{targetAmount},-</h3>
+              <h3 className="text">€{refactorAmount(targetAmount)},-</h3>
             </div>
             <div className="d-flex p-2 justify-content-between mb-3">
               <span className="text--grey400">Maandelijkse winst</span>
-              <span className="text--green">€{monthlyProfit},- p/m</span>
+              <span className="text--green">
+                €{refactorAmount(monthlyProfit)},- p/m
+              </span>
             </div>
             <ProgressBar
               targetAmount={targetAmount}
