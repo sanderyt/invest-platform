@@ -93,7 +93,7 @@ const Detail = () => {
             <h2>Website KPIs</h2>
             <div className="d-flex flex-wrap">
               <KPI
-                label="Jaarlijkse winst"
+                label="Maandelijkse winst"
                 value={`€${refactorAmount(monthlyProfit)},-`}
                 isProfit
               />
