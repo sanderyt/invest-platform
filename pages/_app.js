@@ -1,6 +1,7 @@
 import "../styles/main.scss";
 import "bootstrap/scss/bootstrap-grid.scss";
 import "@fortawesome/fontawesome-free/js/all";
+import "react-vis/dist/main.scss";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { InMemoryCache } from "apollo-cache-inmemory";
