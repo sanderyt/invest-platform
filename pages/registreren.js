@@ -29,7 +29,7 @@ const Registreren = () => {
     validateRegister
   );
 
-  const [registerUser, { error, loading }] = useMutation(REGISTER_USER, {
+  const [registerUser, { error, called }] = useMutation(REGISTER_USER, {
     variables: {
       username: values.email,
       email: values.email,
@@ -107,7 +107,7 @@ const Registreren = () => {
           error={errors.password}
           changeHandler={handleChange}
         />
-        <Button clickHandler={handleSubmit} isLoading={loading}>
+        <Button clickHandler={handleSubmit} isLoading={called}>
           Registeren
         </Button>
         {error && <span className="text--error mt-3">{error.message}</span>}
