@@ -38,10 +38,10 @@ const Detail = () => {
   //Refactor this function, can be smaller
   const amountOfInvestors = () => {
     let investors = [];
-    investments.map(investment => {
-      if (!investors.includes(investment.user.id))
-        investors.push(investment.user.id);
-    });
+    // investments.map(investment => {
+    //   if (!investors.includes(investment.user.id))
+    //     investors.push(investment.user.id);
+    // });
     return investors.length;
   };
 
@@ -73,9 +73,11 @@ const Detail = () => {
     detailDescription,
     targetAmount,
     investments,
-    createdAt
+    createdAt,
+    thumbnail
   } = data.website;
 
+  if (data) console.log(data);
   return (
     <Layout>
       <Subheader subtitle={url} description={smallDescription} />

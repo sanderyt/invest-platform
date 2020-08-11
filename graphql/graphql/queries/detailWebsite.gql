@@ -7,6 +7,9 @@ query detailWebsite($id: ID!) {
     monthlyProfit
     smallDescription
     detailDescription
+    thumbnail {
+      url
+    }
     createdAt
     investments {
       id

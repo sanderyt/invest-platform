@@ -5,7 +5,6 @@ import ALL_WEBSITES from "../../graphql/graphql/queries/allWebsites.gql";
 
 import WebsiteCard from "../WebsiteCard";
 import SkeletonThumb from "../SkeletonThumb";
-import SkeletonLine from "../SkeletonLine";
 
 const Latest = () => {
   const { loading, error, data } = useQuery(ALL_WEBSITES);
@@ -36,6 +35,7 @@ const Latest = () => {
             monthlyProfit={website.monthlyProfit}
             progressAmount={5000}
             targetAmount={website.targetAmount}
+            thumbnail={`https://cms-invest-platform.herokuapp.com${website.thumbnail.url}`}
           />
         );
       });
