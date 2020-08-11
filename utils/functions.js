@@ -13,3 +13,8 @@ export const amountOfInvestors = investments => {
   });
   return investors.length;
 };
+
+export const readableDate = datestring => {
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  return new Date(datestring).toLocaleDateString("nl-NL", options);
+};

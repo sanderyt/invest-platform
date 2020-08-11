@@ -3,7 +3,7 @@ import { AuthContext } from "../../context/auth";
 import GET_ALL_INVESTMENTS_BY_USER from "../../graphql/graphql/queries/getAllInvestmentsByUser.gql";
 import { useQuery } from "@apollo/react-hooks";
 import refactorAmount from "../../utils/refactorAmount";
-import moment from "moment";
+import { readableDate } from "../../utils/functions";
 
 import Layout from "../../components/Layout";
 import DashboardLayout from "../../components/DashboardLayout";
@@ -45,7 +45,7 @@ const Investeringen = props => {
                     <TableCell>
                       {refactorAmount(`€${investment.amountInvested}`)}
                     </TableCell>
-                    <TableCell>{investment.createdAt}</TableCell>
+                    <TableCell>{readableDate(investment.createdAt)}</TableCell>
                     <TableCell>
                       <StatusPill type="success">Bezig met overname</StatusPill>
                     </TableCell>

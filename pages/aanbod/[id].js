@@ -4,7 +4,11 @@ import { AuthContext } from "../../context/auth";
 import { useQuery } from "@apollo/react-hooks";
 import GET_DETAIL_WEBSITE from "../../graphql/graphql/queries/detailWebsite.gql";
 import refactorAmount from "../../utils/refactorAmount";
-import { calculateProgress, amountOfInvestors } from "../../utils/functions";
+import {
+  calculateProgress,
+  amountOfInvestors,
+  readableDate
+} from "../../utils/functions";
 
 import Layout from "../../components/Layout";
 import Subheader from "../../components/Subheader";
@@ -66,7 +70,7 @@ const Detail = () => {
   return (
     <Layout>
       <Subheader subtitle={url} description={smallDescription} />
-      <DetailBar createdAt={createdAt} />
+      <DetailBar createdAt={readableDate(createdAt)} />
       <div className="container detail">
         <div className="row detail__info d-flex pb-5">
           <div className="col-md-6">
@@ -87,9 +91,8 @@ const Detail = () => {
                 isProfit
               />
               <KPI
-                label="Maandelijkse winst"
-                value={`€${refactorAmount(monthlyProfit)},-`}
-                isProfit
+                label="Maandelijkse omzet"
+                value={`€${refactorAmount(monthlyRevenue)},-`}
               />
               <KPI label="Inleg v.a." value="€250,-" />
               <KPI label="Bezoekers p/m" value="3240" />
@@ -102,8 +105,8 @@ const Detail = () => {
             <InvestBox targetAmount={refactorAmount(targetAmount)}>
               <ProgressBar
                 targetAmount={targetAmount}
-                progressAmount={calculateProgress(data.investments)}
-                numberOfInvestors={amountOfInvestors(data.investments)}
+                progressAmount={calculateProgress(investments)}
+                numberOfInvestors={amountOfInvestors(investments)}
               />
               <button
                 className="btn btn--cta btn--lg"
@@ -129,8 +132,8 @@ const Detail = () => {
         clickHandler={investModalHandler}
       >
         <InvestModal
-          progressAmount={calculateProgress(data.investments)}
-          numberOfInvestors={amountOfInvestors(data.investments)}
+          progressAmount={calculateProgress(investments)}
+          numberOfInvestors={amountOfInvestors(investments)}
           websiteId={router.query.id}
         />
       </Modal>
