@@ -16,7 +16,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
-const MyApp = ({ Component, pageProps, props }) => {
+const MyApp = ({ Component, pageProps, props, store }) => {
+  console.log(store, "proppss");
   return (
     <ApolloProvider client={client}>
       <AuthProvider {...props}>

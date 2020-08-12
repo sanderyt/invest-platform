@@ -27,7 +27,7 @@ const DashboardLayout = ({ children }) => {
         </div>
         <div className="dashboard__content col-md-10 d-flex flex-column align-items-center">
           <div className="container-fluid">
-            <div className="row d-flex justify-content-center align-items-center">
+            <div className="row d-flex justify-content-center align-items-center flex-column">
               {children}
             </div>
           </div>

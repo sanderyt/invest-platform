@@ -19,7 +19,8 @@ import StatusPill from "../../components/StatusPill";
 const Investeringen = props => {
   const context = useContext(AuthContext);
   const { loading, error, data } = useQuery(GET_ALL_INVESTMENTS_BY_USER, {
-    variables: { uid: context.user.user.id }
+    variables: { uid: context.user.user.id },
+    srr: false
   });
 
   return (

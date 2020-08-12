@@ -36,7 +36,7 @@ const AuthProvider = props => {
     if (Cookie.get("user")) {
       login(JSON.parse(Cookie.get("user")));
     }
-  }, [initialState]);
+  }, []);
 
   const login = userData => {
     Cookie.set("user", JSON.stringify(userData));
