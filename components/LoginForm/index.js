@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import useForm from "../../hooks/useForm";
-import validateLogin from "../../utils/validateLogin";
+import { validateLogin } from "../../utils/validators";
 import { useMutation } from "@apollo/react-hooks";
 import { AuthContext } from "../../context/auth";
 import { useRouter } from "next/router";

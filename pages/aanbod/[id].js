@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { AuthContext } from "../../context/auth";
 import { useQuery } from "@apollo/react-hooks";
 import GET_DETAIL_WEBSITE from "../../graphql/graphql/queries/detailWebsite.gql";
-import refactorAmount from "../../utils/refactorAmount";
+import { refactorAmount } from "../../utils/functions";
 import {
   calculateProgress,
   amountOfInvestors,

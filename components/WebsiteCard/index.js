@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import refactorAmount from "../../utils/refactorAmount";
+import { refactorAmount } from "../../utils/functions";
 
 import ProgressBar from "../ProgressBar";
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-import refactorAmount from "../../utils/refactorAmount";
+import { refactorAmount } from "../../utils/functions";
 
 const ProgressBar = ({ progressAmount, targetAmount, numberOfInvestors }) => {
   const progressRatio = (progressAmount, targetAmount) => {

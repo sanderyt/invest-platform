@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import useForm from "../../hooks/useForm";
-import validateAmount from "../../utils/validateInvestment";
+import { validateInvestment } from "../../utils/validators";
 import { useMutation } from "@apollo/react-hooks";
 import { AuthContext } from "../../context/auth";
 import ADD_INVESTMENT from "../../graphql/graphql/mutations/addInvestment.gql";
@@ -14,7 +14,7 @@ const InvestModal = ({ progressAmount, numberOfInvestors, websiteId }) => {
   const { handleChange, handleSubmit, values, errors } = useForm(
     { investedAmount: 0 },
     submit,
-    validateAmount
+    validateInvestment
   );
   const { user } = useContext(AuthContext);
   const [addedInvestment, setAddedInvestment] = useState(false);

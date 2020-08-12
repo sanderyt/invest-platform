@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../../context/auth";
+import { refactorAmount, readableDate } from "../../utils/functions";
+
 import GET_ALL_INVESTMENTS_BY_USER from "../../graphql/graphql/queries/getAllInvestmentsByUser.gql";
 import { useQuery } from "@apollo/react-hooks";
-import refactorAmount from "../../utils/refactorAmount";
-import { readableDate } from "../../utils/functions";
 
 import Layout from "../../components/Layout";
 import DashboardLayout from "../../components/DashboardLayout";
@@ -59,11 +59,5 @@ const Investeringen = props => {
     </Layout>
   );
 };
-
-// This gets called on every request
-export async function getServerSideProps() {
-  // Pass data to the page via props
-  return { props: { user: { user: { id: "5f297eaba80b8800175e02aa" } } } };
-}
 
 export default Investeringen;
