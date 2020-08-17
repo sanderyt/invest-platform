@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { ProtectedPage } from "../../components/ProtectedPage";
 import { AuthContext } from "../../context/auth";
 import GET_ALL_INVESTMENTS_BY_USER from "../../graphql/graphql/queries/getAllInvestmentsByUser.gql";
 import { useQuery } from "@apollo/react-hooks";
@@ -87,4 +86,4 @@ const Dashboard = () => {
   );
 };
 
-export default ProtectedPage(Dashboard);
+export default Dashboard;

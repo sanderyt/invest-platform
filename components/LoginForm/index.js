@@ -28,7 +28,6 @@ const Login = () => {
       password: values.password
     },
     onCompleted(userData) {
-      console.log(userData);
       context.login(userData.login.user);
       router.push("/dashboard");
     },

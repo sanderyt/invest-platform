@@ -8,7 +8,7 @@ if (Cookie.get("user")) {
 } 
 
 const initialState = {
-  auth: user, 
+  user: user, 
 };  
 
 const AuthContext = createContext({
@@ -28,7 +28,7 @@ const authReducer = (state, action) => {
     case "LOGOUT":
       return {
         ...state,
-        user: null
+        user: ''
       };
     default:
       return state;
@@ -38,18 +38,12 @@ const authReducer = (state, action) => {
 const AuthProvider = props => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  useEffect(() => {
-    if (Cookie.get("user")) {
-      login(JSON.parse(Cookie.get("user")));
-    }
-  }, []);
-
   const login = userData => {
-    Cookie.set("user", JSON.stringify(userData));
     dispatch({
       type: "LOGIN",
       payload: userData
     });
+    Cookie.set("user", JSON.stringify(userData));
   };
 
   const logout = () => {
@@ -59,7 +53,7 @@ const AuthProvider = props => {
 
   return (
     <AuthContext.Provider
-      value={{ user: state.auth, login, logout }}
+      value={{ user: state.user, login, logout }}
       {...props}
     />
   );
