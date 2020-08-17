@@ -1,9 +1,17 @@
 import React, { useReducer, createContext, useEffect } from "react";
 import Cookie from "js-cookie";
 
+let users = '';
+
+if (Cookie.get("user")) {
+    users = JSON.parse(Cookie.get("user")).user;
+} 
+
+console.log(users);
+
 const initialState = {
-  user: null
-};
+  auth: users, 
+};  
 
 const AuthContext = createContext({
   user: null,
@@ -53,7 +61,7 @@ const AuthProvider = props => {
 
   return (
     <AuthContext.Provider
-      value={{ user: state.user, login, logout }}
+      value={{ user: state.auth, login, logout }}
       {...props}
     />
   );

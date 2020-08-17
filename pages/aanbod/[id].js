@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { useRouter } from "next/router";
 import { AuthContext } from "../../context/auth";
 import { useQuery } from "@apollo/react-hooks";
@@ -34,6 +34,7 @@ const Detail = () => {
   const { loading, error, data } = useQuery(GET_DETAIL_WEBSITE, {
     variables: { id: router.query.id }
   });
+  const 
 
   const [investModalClicked, setInvestModalClicked] = useState(false);
 

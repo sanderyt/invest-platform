@@ -2,7 +2,7 @@ import React from "react";
 
 const Comcept = () => {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row py-5 bg--grey100">
         <div className="col-sm-6 d-flex flex-column align-items-center">
           <h2>
@@ -16,7 +16,7 @@ const Comcept = () => {
           <p>
             Samen investeren in digitale objecten en passief inkomen genereren.
             Met mijn jarenlange expertise in affiliate marketing, weet ik
-            precies hoe ik een website draaiende moet houden.
+            precies hoe ik een website draaiende moet houden. 🚀 
           </p>
         </div>
         <div className="col-sm-6 d-flex flex-column align-items-center">

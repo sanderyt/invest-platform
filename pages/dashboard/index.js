@@ -19,7 +19,7 @@ import TableCell from "../../components/Table/TableCell";
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
   const { loading, error, data } = useQuery(GET_ALL_INVESTMENTS_BY_USER, {
-    variables: { uid: user.user.id }
+    variables: { uid: user.id }
   });
 
   const InvestmentsContent = () => {
@@ -74,13 +74,6 @@ const Dashboard = () => {
 
         <DashboardCard>
           <h2>Mijn profiel</h2>
-          {user && (
-            <>
-              <p>{user.user.email}</p>
-              <p>{user.user.username}</p>
-              <p>{user.user.id}</p>
-            </>
-          )}
         </DashboardCard>
 
         <DashboardCard title="Mijn inkomsten"></DashboardCard>

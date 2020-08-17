@@ -10,7 +10,7 @@ const Instellingen = props => {
     <Layout>
       <DashboardLayout>
         <h1>Instellingen</h1>
-        <h2>{context.user.user.email}</h2>
+        <h2>{context.user.email}</h2>
       </DashboardLayout>
     </Layout>
   );

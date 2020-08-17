@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 
 import useForm from "../hooks/useForm";
-import { useMutation } from "@apollo/react-hooks";
 import { useRouter } from "next/router";
 import { AuthContext } from "../context/auth";
 import { validateRegister } from "../utils/validators";
+
+import { useMutation } from "@apollo/react-hooks";
 import REGISTER_USER from "../graphql/graphql/mutations/registerUser.gql";
 
 import Layout from "../components/Layout";
