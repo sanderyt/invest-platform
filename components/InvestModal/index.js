@@ -23,7 +23,7 @@ const InvestModal = ({ progressAmount, numberOfInvestors, websiteId }) => {
     variables: {
       website: websiteId,
       amountInvested: values.investedAmount,
-      user: user.user.id
+      user: user.id
     },
     update(_, result) {
       setAddedInvestment(true);

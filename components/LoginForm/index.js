@@ -29,7 +29,7 @@ const Login = () => {
     },
     onCompleted(userData) {
       console.log(userData);
-      context.login(userData.login);
+      context.login(userData.login.user);
       router.push("/dashboard");
     },
     onError({ graphQLErrors }) {

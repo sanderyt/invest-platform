@@ -1,16 +1,14 @@
 import React, { useReducer, createContext, useEffect } from "react";
 import Cookie from "js-cookie";
 
-let users = '';
+let user = '';
 
 if (Cookie.get("user")) {
-    users = JSON.parse(Cookie.get("user")).user;
+    user = JSON.parse(Cookie.get("user"));
 } 
 
-console.log(users);
-
 const initialState = {
-  auth: users, 
+  auth: user, 
 };  
 
 const AuthContext = createContext({
