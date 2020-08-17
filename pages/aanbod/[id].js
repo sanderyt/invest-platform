@@ -34,7 +34,6 @@ const Detail = () => {
   const { loading, error, data } = useQuery(GET_DETAIL_WEBSITE, {
     variables: { id: router.query.id }
   });
-  const 
 
   const [investModalClicked, setInvestModalClicked] = useState(false);
 
