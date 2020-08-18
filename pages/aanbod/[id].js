@@ -9,13 +9,6 @@ import {
   amountOfInvestors,
   readableDate
 } from "../../utils/functions";
-import {
-  XYPlot,
-  XAxis,
-  YAxis,
-  HorizontalGridLines,
-  LineSeries
-} from "react-vis";
 
 import Layout from "../../components/Layout";
 import Subheader from "../../components/Subheader";
@@ -128,19 +121,8 @@ const Detail = () => {
       <div className="container-fluid">
         <div className="detail__earnings row">
           <div className="col-12 d-flex flex-column align-items-center p-3">
-            <h2>Inkomsten per maand</h2>
-            <XYPlot width={800} height={400}>
-              <HorizontalGridLines />
-              <LineSeries
-                data={[
-                  { x: 1, y: 10 },
-                  { x: 2, y: 5 },
-                  { x: 3, y: 15 }
-                ]}
-              />
-              <XAxis />
-              <YAxis />
-            </XYPlot>
+            <h2>Inkomsten per maand 💸 </h2>
+            <p>Hier komen de inkomsten van de website 💸 </p>
           </div>
         </div>
       </div>
