@@ -26,7 +26,7 @@
     "next-fonts": "^1.2.0",
     "next-plugin-graphql": "0.0.2",
     "node-fetch": "^2.6.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-vis": "^1.11.7"
